@@ -6,7 +6,8 @@
 
 \underline{\emph{Model drift}} can occur as a result of data or concept drift and it is often manifested by a loss in a model's accuracy. Observing metrics such as accuracy and error rates are the common ways production models are monitored. For example, in a transcription setting, measuring the character and word edits required after inference were used (Case D) as error metrics to monitor production models and to characterise any drift in the model.
 
-\underline{\emph{Infrastructure monitoring}} is applied to ensure models utilize resources (GPU/CPU, memory, disk, network, etc.) efficiently or flag unnoticed technical problems such as scaling designs and IO bottlenecks during inference. Inference endpoints often require further low-level monitoring to characterize their latency. Cases D, E and G closely monitor endpoint latency since it forms an important requirement of the entire ML solution.
+\underline{\emph{Infrastructure monitoring}}
+is applied to ensure models utilize resources (GPU/CPU, memory, disk, network, etc.) efficiently or to flag technical problems such as scaling designs and I/O bottlenecks during training or inference. Cases D, E and G closely monitor endpoint latency since it forms an important requirement of the entire ML solution.
 
 %Case organizations are aware of the benefits of monitoring different parts  of the entire ML pipelines but often times end up monitoring only certain stages of the pipelines based on their perceived importance.
 
