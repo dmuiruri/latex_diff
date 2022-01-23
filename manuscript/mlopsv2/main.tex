@@ -1,0 +1,134 @@
+%\documentclass[conference]{IEEEtran}
+\documentclass{IEEEcsmag}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[square,numbers,comma]{natbib}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+% ===== Dennis added ====
+\usepackage{cancel}
+\usepackage{hyperref}
+\renewcommand*{\thesection}{\arabic{section}}
+\usepackage{lipsum}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{soul}
+%https://tex.stackexchange.com/questions/71162/reset-section-numbering-between-unnumbered-chapters
+% ======== end ==========
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+\newcommand{\IC}[1]{\textcolor{red}{\textit{IC: #1}}}
+\newcommand{\red}[1]{\textcolor{red}{#1}} 
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\title{Practices and Infrastructures for ML Systems -- An Interview Study}
+
+\author{\IEEEauthorblockN{Dennis Muiruri,
+Lucy Ellen Lwakatare, Jukka K. Nurminen and
+Tommi Mikkonen}
+\IEEEauthorblockA{Department of Computer Science,
+University of Helsinki\\
+Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsinki.fi, 
+}
+}
+
+\begin{abstract}
+The best practices and infrastructures for developing and maintaining machine learning (ML) enabled software systems are often reported by large and experienced data-driven organizations. However, little is known about the state of practice across other organizations. Using interviews, we investigated practices and toolchains for ML-enabled systems from sixteen organisations in various domains. Our study makes three broad observations related to data management practices, monitoring practices and automation practices in ML model training, and serving workflows. These have limited number of generic practices and tools applicable across organizations in different domains.
+
+\end{abstract}
+
+\maketitle
+
+\section{\textbf{Introduction}}
+\label{sec: introduction}
+\input{sections/introduction}
+
+
+\section{\textbf{Background and related work}}
+\label{sec:background}
+\input{sections/background_related_work}
+
+
+\section{\textbf{Research method}}
+\label{sec: methodology}
+\input{sections/research_method}
+
+
+%\section{Overview of the Cases}
+%\label{sec: study_data}
+%\input{sections/overview_of_the_cases}
+
+
+% \section{Findings}
+% \label{sec:findings}
+\input{sections/findings}
+
+
+\section{\textbf{Discussion and conclusion}}
+\label{sec:discussion}
+\input{sections/discussion}
+
+\section{\textbf{Biographies}}
+\label{sec:biographies}
+\input{sections/biographies}
+
+%\section{Conclusion and future work}
+%\label{sec:conclusion}
+%\input{sections/conclusion_future_work}
+
+%\section{Appendix}
+%\label{sec:appendix}
+%\input{sections/appendix}
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+%\bibliographystyle{ACM-Reference-Format}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ACM-Reference-Format}
+
+\small
+\bibliography{main}
+
+\end{document}

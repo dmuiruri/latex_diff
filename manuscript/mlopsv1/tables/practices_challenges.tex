@@ -1,0 +1,90 @@
+% Table summary of practices in ML flow
+\begin{table*}[t]
+  \caption{Summary of practices and challenges}
+  \centering
+  \resizebox{15cm}{8cm}{%
+  \begin{tabular}{p{1,8cm}p{9cm}p{8cm}}
+    \toprule
+     & \textbf{Practices} &\textbf{Challenges}  \\
+    \toprule 
+    \multicolumn{2}{l}{ \textbf{ML workflow}} \\ 
+    % Data Management
+    \multirow{4}{*}{ Data management } & 
+    \begin{itemize}
+       \item Batch or stream data loads largely from internal systems, third party vendors or devices and sensors
+       \item Co-location of data and compute to reduce I/O latency in data transfer
+       \item Selecting data storage formats (e.g., Apache Parquet) with great consideration of scalability, portability, ML frameworks
+       \item Data documentation (e.g., data catalogue) for fast data identification
+       \item Employing data validation approaches (e.g., descriptive statistics and schema) that are tailored to the types of data 
+       \item Maintaining data quality by a dedicated team or third party vendor
+       \item Determining data quality metrics from domain knowledge especially in highly specialized settings
+    \end{itemize}
+    &
+    \begin{itemize}
+       %\item Organizations contend between using public cloud infrastructure or private infrastructure due to data security and residency constraints.
+       \item Determining ownership of data quality aspects especially in large organizations or when data collection is outsourced
+       \item IoT related factors such as sensor outage, network latency or low traffic priority, sensor quality etc.
+       \item Programming defaults in data collection components can lead to poor data quality through subtle hard to notice errors.
+       \item Lack of standardized annotation formats across DL networks especially in computer vision reduces interoperability across network architectures.
+    \end{itemize} \\
+    
+    % Model Training
+    \midrule
+    \multirow{3}{1,8cm}{Model training \& evaluation} & 
+    \begin{itemize}
+       \item Selecting ML algorithm based on available data and learning problem formulation during requirement elicitation and exploratory experiments
+       \item Using heuristics to compliment or over ML algorithm when constrained by regulations or the complexity of models
+       \item Employing transfer learning to effectively and accurately train DL models.
+       \item Flexibility to choose standard ML frameworks e.g. Tensorflow and PyTorch as popular in DL, and Scikit-Learn and XGBoost in non-DL
+       \item Using ML frameworks that offer great flexibility, efficiency and usability 
+       \item Employing multiple approaches to evaluate quality of ML models e.g., using validation dataset stratified by quality
+       \item Managing and tracking model evaluation results using experiment tracking tools, or metadata and hash-based approaches.
+    \end{itemize}
+    &
+    \begin{itemize}
+       \item The cost of training deep learning models from a clean start can be prohibitively high
+       %\item In some IoT cases, different data regimes can emerge from a sensor's contextual environment. In some cases, such an outcome may mean training multiple models since deploying a single model may result in poor inference.
+       \item Determining model explainability
+       \item Feature extraction and hyper parameter tuning can be a time consuming activity especially in organization with different types of data.
+       \item Model benchmarking was highlighted as an inherently difficult task given that it is challenging to replicate publicly available state of the art models and related results.
+    \end{itemize} \\
+     \midrule
+    % Monitoring
+    \multirow{3}{1,8cm}{Model Deployment \& Monitoring} & 
+    \begin{itemize}
+       \item Inference serving through REST based API endpoints deployed in public cloud environments
+       \item Inference serving with strict latency requirements through gRPC endpoints as opposed to REST endpoints.
+       \item Model deployment for either batch inference or online inference purposes
+       \item Monitoring at different parts of the pipeline, to ensure data quality, model quality and performance and infrastructure utilization
+    \end{itemize}
+    &
+    \begin{itemize}
+       \item Deploying models within organizations that do not use the cloud environment can be a lengthy process due to relevant data governance protocols.
+       \item Monitoring model or data drift in deployed systems can be a challenge due to lack of visibility especially in scenarios where input data cannot be saved due to GDPR related constraints.
+    \end{itemize}
+    \\
+        % Tools and infrastructure in ML Pipelines
+    \midrule
+    \multirow{3}{*}{\textbf{ML Pipeline}} & 
+    \begin{itemize}
+       \item Version control code and all pipeline related artifacts e.g. in git, and provision execution environment using infrastructure-as-code frameworks e.g. Terraform
+       \item Encapsulating ML training workflows in docker containers to increase portability 
+       \item Using common container orchestration platforms e.g., Kubernetes to build scalable containerised pipelines
+       \item Using ML workflow automation tools e.g. Argo and kubeflow to execute schedule ML training pipelines and queues
+       \item Tracking ML training experiments largely in custom ways e.g. hashing and custom web tools but also with ML workflow automation tools.
+       \item Employing continuous integration tools e.g., Jenkins to test and build docker images prior to deployment
+    \end{itemize}
+    &
+    \begin{itemize}
+       \item Maintaining an up to date stack of tools frameworks requires rigorous testing to avoid regression errors and dependency breaks across tool chains.
+       \item Pipelines can become quite complex especially when dealing with complex DL architectures where multiple models are maintained.
+       \item Skills required to run end-to-end automated ML pipelines are not easily available.
+    \end{itemize}
+    \\
+
+    \midrule
+    
+    \end{tabular}%
+    }
+  \label{tab:practices_challenges}%
+\end{table*}%

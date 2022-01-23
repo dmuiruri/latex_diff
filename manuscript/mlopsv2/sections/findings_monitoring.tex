@@ -1,0 +1,12 @@
+% Monitoring for Model quality using accuracy metrics, monitoring data drift using things like histograms, descriptive statistics .  
+\subsection{Model monitoring} 
+%ensure that a model does not regress in its utility, and, if it does regress, the reason for the regression should be easy to identify. This necessitates monitoring activities as part of an ML development workflow which mainly takes place at three levels -- data, model, and infrastructure. 
+
+\underline{\emph{Training data drift.}} Data level monitoring is instrumented to check for drift within the data. Identifying drift in numeric data types is be achieved by using visual tools such as graphs or descriptive statistics (cases G, H, I), image-based data makes use of histograms (case F). Speech and text based data is also susceptible to drift but can be more challenging to monitor. For example, case D mentioned the emergence of the word Covid-19 in the medical sphere recently but the word is not available in any historical corpus. Typically, heuristics are used to monitor drift in these speech or NLP settings.
+
+\underline{\emph{Model drift}} Model monitoring involves ensuring a model's accuracy and error metrics are maintained at a certain threshold. Observing key metrics such as accuracy and error rates were observed as the common ways production models are monitored. For example, in a transcription setting, measuring the character and word edits required after inference were used (Case D) as error metrics used to monitor already deployed models and to characterise any drift in the model.
+
+\underline{\emph{Infrastructure utilization}} Infrastructure monitoring is commonly applied to ensure resources (GPU/CPU, memory, disk, network, etc.) are utilized reasonably or to flag unnoticed technical problems such as scaling designs, IO bottlenecks and how inference endpoints utilize backend resources. Inference endpoints often require further low-level monitoring to characterize the latency of the solution. Cases D, E and G were particularly keen to monitor endpoint latency as this formed an important requirement of the ML solution.
+
+%Case organizations are aware of the benefits of monitoring different parts  of the entire ML pipelines but often times end up monitoring only certain stages of the pipelines based on their perceived importance.
+

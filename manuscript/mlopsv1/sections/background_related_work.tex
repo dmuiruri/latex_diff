@@ -1,0 +1,37 @@
+%This section presents empirical studies on development, deployment, and maintenance of ML-enabled systems. The focus is on works that describe the characteristics of industrial ML workflows and pipelines for ML systems.
+%\red{should we add a section intro here? In other sections there is something, but here not?}
+
+\subsection{Software engineering for machine learning}
+ Consideration and adaptation of well-established software engineering (SE) methods and approaches in ML systems have been reported to be crucial \cite{Amershi2019}. This perspective shifts the focus from just ML algorithms to also include other important aspects of ML model development and operations in production, such as data management and serving infrastructures \cite{Sculley2015}. Evidence of the integration between SE approaches and ML workflow is in MLOps (machine learning operations), a term used to show the extension of DevOps philosophy of increased agility and automation to the ML workflows \cite{Zhou2020MLOps}. In support of the latter, different tools are used to provide automation in ML workflows. 
+ %However, improved integration in the other areas is needed, particularly software testing because either the current approaches do not suffice for ML component \cite{Murphy2007testing, Braiek2020} or have low adoption rates \cite{Serban2020Practices}.
+ 
+Best SE practices in ML are identified and their adoption in the industry is surveyed in \cite{Serban2020Practices}. The identified 29 SE practices in ML are classified into six categories: (1) data (e.g., employing sanity checks for all external data sources), (2) training (e.g., use versioning for data, model, configurations and training scripts), (3) coding (e.g., using continuous integration), (4) deployment (e.g., enabling shadow deployment), (5) team (e.g., collaborating with multidisciplinary team members), and (6) governance (enforcing fairness and privacy) \cite{Serban2020Practices}. According to the authors \cite{Serban2020Practices}, the least adopted practices --  related to feature management, writing tests, shadow deployment and automated hyper-parameter optimization -- require effort, knowledge and tool support. This interview study provides some validation and in-depth interpretation to the survey findings related to the adoption of practices  \cite{Serban2020Practices}.  
+
+\subsection{ML workflow and pipeline}
+
+ML workflows describe different tasks that are performed in order to develop, deploy and operate ML models in production \cite{Amershi2019}. ML pipelines are used to express the complex input/output relationship between the different tasks/operators of an automated ML workflow \cite{Doris2021MLPipelines}. Generally, ML pipelines plug together several tools when automating the ML workflow \cite{Hummer2019IBM}.
+
+Typical lifecycle phases of ML workflow include model requirements, data collection, data cleaning, data labelling, feature engineering, model training, model evaluation, model deployment and model monitoring \cite{Amershi2019}. Studies show that end-to-end automation of ML workflow improves both the development time and rate of deploying ML models \cite{Hummer2019IBM,Doris2021MLPipelines}. Furthermore, it allows organizations to (1) automate the orchestration of workflows steps, (2) track and reproduce the different outputs of ML workflow, and (3) reuse common steps of ML workflow across multiple ML-enabled systems \cite{Baylor2017, Hummer2019IBM}. %In addition to ML workflow components, MLOps tools provide utilities to manage pipeline execution and schedule training jobs.
+
+Few studies report in detail the characteristics of ML pipelines, in terms of their components and architectures \cite{Hummer2019IBM,Doris2021MLPipelines}. Different from our qualitative analysis, Xin et al \cite{Doris2021MLPipelines} quantitatively analysed over 3000 ML pipelines at Google and presented their high-level characteristic in terms of pipeline lifespan, complexity and resource consumption. For the complexity of ML pipelines, the authors analyzed typical input data shape, feature transformation and model diversity. Model diversity showed that a large portion used neural networks (NN) (64\%). The latter is informs the characteristic of ML pipeline since the choice of model type and architecture has an influence on ML pipeline steps. From the analysis, the authors \cite{Doris2021MLPipelines} identified areas for optimizing the ML pipelines, that were mostly related to data management. 
+
+%Data infrastructure is critical when developing an ML-enabled system because it influences the performance, fairness, robustness, safety, and scalability of the system. Developers of ML-enabled systems are often reported to struggle most with data acquisition and management \cite{makinen2021needs}. The latter includes spending a significant portion of time to analyse raw data and handle data errors, such as differences in data distribution at training and serving (training-serving skew). To ensure high-quality data in ML pipelines, data validation tools, such as TFX Data Validation \cite{Baylor2017} are proposed for detecting data errors. These have focus on the data cleaning phase, and there is a need for extension in both upstream (data creation) and downstream (live data after deployment) \cite{Sambasivan2021}.
+
+
+
+
+%Environment abstractions
+%The operationalization of ML solutions often involve moving different assets (data, model, application) between different environments up until deployment to production environment. Typically, ML model is developed in an iterative manner in a local environment (e.g., using Jupyter Notebook) with a sample of offline dataset. For production deployment, ML model must be integrated with data infrastructure in order to use live training data as well as with the serving infrastructure in order to 
+
+%Once, implemented ML model can be moved to staging/test environment before deployment to production. Despite the trend of training ML models on the cloud where there is abundant GPU-backed VMs and containers, cite{Hummer2019IBM} noticed a significant number of AI systems use on-premise servers, dedicated clusters, edge devices or a combination and this heterogeneity introduce a number of challenges. 
+
+% Metadata management
+%Tracking metadata of AI artifacts across the lifecycle is important for reproduciability of ML experiments. 
+
+
+% Monitoring
+
+
+
+
+%
