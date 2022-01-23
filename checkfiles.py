@@ -5,7 +5,6 @@ are carried out in the correct files.
 
 """
 import os
-import sys
 import subprocess
 
 ignored_files = ['IEEEcsmag.cls', 'IEEEtran.bst', 'IEEEtran.cls', 'IEEEtranS.bst',
@@ -44,10 +43,8 @@ def process_files():
     v1 = './manuscript/mlopsv1/{}'
     v2 = './manuscript/mlopsv2/{}'
     for dir in os.listdir('./manuscript/mlopsv1'):
-        #print('{}:  {}:{}:{}'.format(dir, os.path.isdir(v1.format(dir)), os.path.isdir(v2.format(dir)), dir in folders))
         if os.path.isdir(v1.format(dir)) and os.path.isdir(v2.format(dir)) and dir in folders:
             for file in os.listdir('./manuscript/mlopsv2/{}'.format(dir)):
-                # diff the files and store them in folder
                 print('{}:{}'.format(dir, file))
                 cmd = command(dir, file)
                 subprocess.run(cmd, shell=True)
