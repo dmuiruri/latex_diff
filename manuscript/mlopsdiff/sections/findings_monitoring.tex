@@ -7,10 +7,12 @@
 
 \underline{\emph{Model drift}} \DIFdelbegin \DIFdel{Model monitoring involves ensuring a }\DIFdelend \DIFaddbegin \DIFadd{can occur as a result of data or concept drift and it is often manifested by a loss in a }\DIFaddend model's accuracy\DIFdelbegin \DIFdel{and error metrics are maintained at a certain threshold. Observing key }\DIFdelend \DIFaddbegin \DIFadd{. Observing }\DIFaddend metrics such as accuracy and error rates \DIFdelbegin \DIFdel{were observed as }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend the common ways production models are monitored. For example, in a transcription setting, measuring the character and word edits required after inference were used (Case D) as error metrics \DIFdelbegin \DIFdel{used to monitor already deployed }\DIFdelend \DIFaddbegin \DIFadd{to monitor production }\DIFaddend models and to characterise any drift in the model.
 
-\underline{\DIFdelbegin \emph{\DIFdel{Infrastructure utilization}}%DIFAUXCMD
+\DIFdelbegin \emph{\DIFdel{\underline{Infrastructure utilization}}}%DIFAUXCMD
 %DIFDELCMD < \MBLOCKRIGHTBRACE %%%
-\DIFdel{Infrastructure monitoring is commonly }\DIFdelend \DIFaddbegin \emph{\DIFadd{Infrastructure monitoring}}}
+\DIFdel{Infrastructure monitoring is commonly }\DIFdelend \DIFaddbegin \emph{\DIFadd{Infrastructure monitoring}}
 \DIFadd{is }\DIFaddend applied to ensure \DIFaddbegin \DIFadd{models utilize }\DIFaddend resources (GPU/CPU, memory, disk, network, etc.) \DIFdelbegin \DIFdel{are utilized reasonably }\DIFdelend \DIFaddbegin \DIFadd{efficiently }\DIFaddend or to flag \DIFdelbegin \DIFdel{unnoticed }\DIFdelend technical problems such as scaling designs \DIFdelbegin \DIFdel{, IO bottlenecks and how inferenceendpoints utilize backend resources. Inference endpoints often require further low-level monitoring to characterize the latency of the solution. }\DIFdelend \DIFaddbegin \DIFadd{and I/O bottlenecks during training or inference. }\DIFaddend Cases D, E and G \DIFdelbegin \DIFdel{were particularly keen to }\DIFdelend \DIFaddbegin \DIFadd{closely }\DIFaddend monitor endpoint latency \DIFdelbegin \DIFdel{as this formed }\DIFdelend \DIFaddbegin \DIFadd{since it forms }\DIFaddend an important requirement of the \DIFaddbegin \DIFadd{entire }\DIFaddend ML solution.
 
-%Case organizations are aware of the benefits of monitoring different parts  of the entire ML pipelines but often times end up monitoring only certain stages of the pipelines based on their perceived importance.
-
+%Case organizations are aware of the benefits of monitoring different
+%parts of the entire ML pipelines but often times end up monitoring
+%only certain stages of the pipelines based on their perceived
+%importance.
