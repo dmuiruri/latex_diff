@@ -7,6 +7,6 @@ project is structured as multiple latex files.
 ## Latexdiff
 
 The main tool used to track changes in latex is
-(latexdiff)[https://www.ctan.org/tex-archive/support/latexdiff] which
+[latexdiff](https://www.ctan.org/tex-archive/support/latexdiff) which
 is a perl script and found in CTAN repositories.
 

@@ -10,14 +10,27 @@
 %DIF >  4. A similar discussion is needed for the distilled conclusions. For example, are the practices presented in the paper adopted in a similar manner as in, say, reference [5]? If not, is this because of regional bias or time differences?
 
 \DIFaddend % Summarize and generalize the findings
-%DIF >  Practices distilled and how they compare to related work
-\DIFaddbegin \DIFadd{Our findings of the practices in ML workflow show 
+\DIFdelbegin \DIFdel{In relation to existing literature, our findings provide explanations to the low adoption rates of the important }\DIFdelend %DIF >  Practices distilled and how they compare to related work
+\DIFaddbegin \DIFadd{Similar to \mbox{%DIFAUXCMD
+\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
+, our results reveal a low adoption of SE }\DIFaddend best practices in \DIFdelbegin \DIFdel{ML \mbox{%DIFAUXCMD
+\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
+. In addition, compared to experienced online data-intensive organizations, our study show that majority of organizations have not achieved the capability required to enable continuous deployment and operations of ML models in production. 
+However}\DIFdelend \DIFaddbegin \DIFadd{the deployment category and a medium-to-high adoption in the other categories (data, training, team, and coding). In contrast, we observe a high adoption of practices in teams with limited experience because of the knowledge exposure, especially for some established specific practices and tools. Furthermore, since the companies are working on the critical deployment of ML components, we observe the identified practices to broadly address all SE challenges from this stage in the taxonomy \mbox{%DIFAUXCMD
+\cite{Lwakatare2019}}\hskip0pt%DIFAUXCMD
+. 
 }
 
+\DIFadd{Since the AI engineering field still needs to progress in defining well-established processes and practices for engineering AI-enabled systems}\DIFaddend , there is \DIFdelbegin \DIFdel{great awareness of these amongst the practitioners as evidenced by their continued efforts to improve their practices and tools . We make the following observations concerning the current state of practice  in many organizations.
+These areas would greatly benefit from future research contributions.
+}\DIFdelend \DIFaddbegin \DIFadd{a need to understand how such systems are engineered. Compared to existing literature, our findings of practices in ML workflows (Section 4) and tools in ML pipelines (Section 5) present the ‘how’ knowledge, in contrast to a catalog of practices or tools for ML applications. This information also helps to objectively analyze the engineering practices and identify areas to guide future research on improving the development of ML systems in practice.
+}\DIFaddend 
 
-\DIFaddend In relation to existing literature, our findings provide explanations to the low adoption rates of the important best practices in ML \cite{Serban2020Practices}. In addition, compared to experienced online data-intensive organizations, our study show that majority of organizations have not achieved the capability required to enable continuous deployment and operations of ML models in production. However, there is great awareness of these amongst the practitioners as evidenced by their continued efforts to improve their practices and tools. We make the following observations concerning the current state of practice  in many organizations. These areas would greatly benefit from future research contributions.
 
-%Highlight the most important or most surprising observations
+%DIF > In relation to existing literature, our findings provide explanations to the low adoption rates of the important best practices in ML \cite{Serban2020Practices}. In addition, compared to experienced online data-intensive organizations, our study show that majority of organizations have not achieved the capability required to enable continuous deployment and operations of ML models in production. However, there is great awareness of these amongst the practitioners as evidenced by their continued efforts to improve their practices and tools. We make the following observations concerning the current state of practice  in many organizations. These areas would greatly benefit from future research contributions.
+\DIFaddbegin 
+
+\DIFaddend %Highlight the most important or most surprising observations
 First, streamlining data handling practices in order to get good quality data is an arduous task given increasing amounts of data, challenging data types and widening regulatory oversight around personal data. As a result, data handling workflows tend to induce long ML production cycles. Establishing efficient data handling procedures would shorten ML production cycles and increase experimentation for R\&D purposes. \DIFaddbegin \DIFadd{\textcolor{orange}{Although feature stores have emerged as an intermediate solution towards solving data discoverability constraints, most organizations are yet to adopt this solution.}
 }\DIFaddend 
 
