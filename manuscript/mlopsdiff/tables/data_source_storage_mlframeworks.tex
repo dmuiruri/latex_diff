@@ -1,0 +1,103 @@
+%% % Table summary of data collection, storage and ML frameworks
+%% \begin{table}[t]
+%%   \centering
+%%   \caption{Summary of data sources and storage platforms}
+%%   \begin{tabular}{clll}
+%%     \hline
+%%     Case & Data Source & Storage Solution & ML-Framework & ML-Category \\
+%%     \hline
+%%     A & Camera & Google cloud & Tensorflow & DL \\
+%%     B & End users & AWS Tensorflow & DL \\
+%%     C & End users & On-premise & Tensorflow, PyTorch, OpenCV & DL \\
+%%     D & End users & Google cloud & Kaldi ASR framework  & DL \\
+%%     E & Open source, End users & Google cloud & PyTorch & DL \\
+%%     F & Camera & - & Tensorflow (Keras) and other frameworks & DL \\
+%%     G & Trading systems & AWS & Tensorflow, Scikit-Learn & DL and Non-DL \\
+%%     H & End users and internal systems & AWS & Scikit-Learn, XGBoost, Heuristics & Non-DL \\
+%%     I & Sensor  and Technicians & AWS & Spark Analytics, Heuristics/Rules & Non-DL \\
+%%     J & Sensor & Azure Cloud & - & Non-DL \\
+%%     K & Meters & Azure Cloud & Scikit-learn, XGBoost & Non-DL \\
+%%     L & Medical Device,  Genome Sequence & Azure Cloud & R & Non-DL \\
+%%     M & System users & Azure Cloud & PyTorch, Scikit-learn (Classification) & Non-DL \\
+%%     N & System users & AWS & Watson(IBM), Tensorflow, R & DL \\
+%%     O & System users & Azure Cloud & - & Non-DL \\
+%%     P & System users & AWS & Scikit-learn, Tensorflow(Keras), fastText & Non-DL \\
+%%     \hline
+%%     \end{tabular}%
+%%   \label{tab:data_source_storage_mlframeworks}%
+%% \end{table}%
+
+
+% Table summary of data collection, storage and ML frameworks
+%DIF > \begin{table*}[t]
+%DIF >   \centering
+%DIF >   \caption{Summary of ML usecase, frameworks, data sources and storage platforms across cases. (*of the ML usecase)}
+%DIF >   \begin{tabular}{p{0,5cm}p{3,1cm}p{2cm}p{2,7cm}p{1,6cm}p{2,7cm}}
+%DIF >     \toprule
+%DIF >     \textbf{Case} & \textbf{ML usecase (Type)} & \textbf{Domain*} &\textbf{Data Source} & \textbf{Storage} & \textbf{ML-Framework} \\
+%DIF >     \toprule \\
+%DIF >     A & Object Detection (NN) & IoT & Camera & Google Cloud & Tensorflow \\
+%DIF >     B & Form data extraction  (NN) & Finance & Internal Systems & AWS & Tensorflow \\
+%DIF >     C & Form data extraction (NN) & Public Services & Internal Systems & On-premise & Tensorflow, PyTorch \\
+%DIF >     D & Transcription (NN) & Healthcare & Internal Systems & Google Cloud & Kaldi ASR framework \\
+%DIF >     E & Speech based UI (NN) & E-Commerce & Open-source, End-users & Google Cloud & PyTorch \\
+%DIF >     F & MLOps (NN, Non-NN) & IT Services & Camera  & - & Multiple frameworks \\
+%DIF >     G & MLOps (NN, Non-NN)  & Energy & Internal systems & AWS & Tensorflow, Scikit-Learn \\
+%DIF >     H & Risk management (Non-NN) & Finance & Internal systems & AWS & Scikit-Learn, Heuristics \\
+%DIF >     I & Predictive maintenance (Non-NN) & Engineering & Sensor and Technicians & AWS &  Spark Analytics, Heuristics/Rules \\
+ %DIF >    J & Predictive maintenance (Non-NN) & Biochemicals & Sensor & Azure Cloud & - \\
+%DIF >     K & Anomaly detection (Non-NN) & Real Estate & Meters & Azure Cloud & Scikit-learn, %XGBoost \\
+    %DIF > L & Data analysis (Non-NN) & Pharmaceutical & Device,  Genome & Azure Cloud & R \\
+    %DIF > M & Report/Document classification (Non-NN) & Healthcare & Internal systems & Azure Cloud & PyTorch, Scikit-learn (Classification) \\
+%DIF >     N & Chatbots, Profiling (NN) & Finance & Internal systems & AWS & Watson(IBM), Tensorflow \\
+%DIF >     O & ML pipeline automation (Non-NN) & IT services & Internal Systems & Azure Cloud & - \\
+%DIF >     P & Marketing/campaign management (NN) & Media & Internal systems & AWS & Scikit-learn, Tensorflow, fastText \\
+%DIF >     \hline
+    \DIFaddbegin 
+
+
+%DIF >     \end{tabular}%
+%DIF >   \label{tab:data_source_storage_mlframeworks}
+%DIF > \end{table*}% Add a role with multi column to add the text "caption"
+
+
+%DIF > %%% with interviewees
+%DIF > % Table summary of data collection, storage and ML frameworks
+\DIFaddend \begin{table*}[t]
+ \centering
+  \caption{Summary of ML usecase, frameworks, data sources and storage platforms across cases. (*of the ML usecase)}
+  \DIFdelbeginFL %DIFDELCMD < \begin{tabular}{p{0,5cm}p{3,4cm}p{2cm}p{2,7cm}p{1,6cm}p{2,7cm}}
+%DIFDELCMD <     %%%
+\DIFdelendFL \DIFaddbeginFL \begin{tabular}{p{0,5cm}p{2cm}p{2,8cm}p{1,8cm}p{2cm}p{1cm}p{2,3cm}}
+    \DIFaddendFL \toprule
+    \textbf{Case} & \DIFaddbeginFL \textbf{\DIFaddFL{Interviewee Role}} & \DIFaddendFL \textbf{ML usecase (Type)} & \textbf{Domain*} &\textbf{Data Source} & \textbf{Storage} & \textbf{ML-Framework} \\
+    \toprule \\
+    A & \DIFaddbeginFL & \DIFaddendFL Object Detection (NN) & IoT & Camera & \DIFdelbeginFL \DIFdelFL{Google Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{GCP }\DIFaddendFL & Tensorflow \\
+    B & \DIFaddbeginFL & \DIFaddendFL Form data extraction  (NN) & Finance & Internal Systems & AWS & Tensorflow \\
+    C & \DIFaddbeginFL & \DIFaddendFL Form data extraction (NN) & Public Services & Internal Systems & On-premise & Tensorflow, PyTorch \\
+    D & \DIFaddbeginFL & \DIFaddendFL Transcription (NN) & Healthcare & Internal Systems & \DIFdelbeginFL \DIFdelFL{Google Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{GCP }\DIFaddendFL & Kaldi ASR framework \\
+    E & \DIFaddbeginFL & \DIFaddendFL Speech based UI (NN) & E-Commerce & Open-source, End-users & \DIFdelbeginFL \DIFdelFL{Google Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{GCP }\DIFaddendFL & PyTorch \\
+   F & \DIFaddbeginFL & \DIFaddendFL MLOps (NN, Non-NN) & IT Services & Camera  & - & Multiple frameworks \\
+    G & \DIFaddbeginFL & \DIFaddendFL MLOps (NN, Non-NN)  & Energy & Internal systems & AWS & Tensorflow, Scikit-Learn \\
+    H & \DIFaddbeginFL & \DIFaddendFL Risk management (Non-NN) & Finance & Internal systems & AWS & Scikit-Learn, Heuristics \\
+    I & \DIFaddbeginFL & \DIFaddendFL Predictive maintenance (Non-NN) & Engineering & Sensor and Technicians & AWS &  Spark Analytics, Heuristics/Rules \\
+    J & \DIFaddbeginFL & \DIFaddendFL Predictive maintenance (Non-NN) & Biochemicals & Sensor & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & - \\
+    K & \DIFaddbeginFL & \DIFaddendFL Anomaly detection (Non-NN) & Real Estate & Meters & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & Scikit-learn, XGBoost \\
+    L & \DIFaddbeginFL & \DIFaddendFL Data analysis (Non-NN) & Pharmaceutical & Device,  Genome & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & R \\
+    M & \DIFaddbeginFL & \DIFaddendFL Report/Document classification (Non-NN) & Healthcare & Internal systems & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & PyTorch, Scikit-learn (Classification) \\
+    N & \DIFaddbeginFL & \DIFaddendFL Chatbots, Profiling (NN) & Finance & Internal systems & AWS & Watson(IBM), Tensorflow \\
+    O & \DIFaddbeginFL & \DIFaddendFL ML pipeline automation (Non-NN) & IT services & Internal Systems & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & - \\
+    P &\DIFaddbeginFL & \DIFaddendFL Marketing/campaign management (NN) & Media & Internal systems & AWS & Scikit-learn, Tensorflow, fastText \\
+    \hline
+    \DIFaddbeginFL 
+
+       
+    \multicolumn{7}{l}{
+    Organizations often use cloud storage providers with data centres  either in Finland, close proximity to Finland or within}\\
+
+    \multicolumn{7}{l}{the European Union area following customer preferences or regulatory constraints. In certain cases, data is stored in private }\\
+
+    \DIFaddendFL \end{tabular}%
+  \DIFdelbeginFL %DIFDELCMD < \label{tab:data_source_storage_mlframeworks}%%%
+\DIFdelendFL \DIFaddbeginFL \label{tab:data_source_storage_mlframeworks_interviewees}\DIFaddendFL %
+\end{table*}%

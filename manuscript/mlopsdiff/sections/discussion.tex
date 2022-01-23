@@ -1,0 +1,64 @@
+
+%DIF > %%%%%%%%% Reviewer 2 %%%%%%
+%DIF >  Most importantly, a more in-depth discussion on the results is expected. For example, what can we learn from the survey results, especially for the SE4AI or just the AI community? Does the result imply new challenges or directions in these communities? The discussion in Section 6 is superficial currently and is just informative to the practitioners who would like to build a ML production system.
+\DIFaddbegin 
+
+%DIF > %%%%%%%%% Reviewer 3 %%%%%%
+
+%DIF >  3. The paper can benefit from a broader discussion about the practices distilled and how they compare to related work. For example, with reference [2], which served as the main inspiration, and reference [5]. Is the taxonomy used at least similar to [2]?
+
+%DIF >  4. A similar discussion is needed for the distilled conclusions. For example, are the practices presented in the paper adopted in a similar manner as in, say, reference [5]? If not, is this because of regional bias or time differences?
+
+\DIFaddend % Summarize and generalize the findings
+%DIF >  Practices distilled and how they compare to related work
+\DIFaddbegin \DIFadd{Our findings of the practices in ML workflow show 
+}
+
+
+\DIFaddend In relation to existing literature, our findings provide explanations to the low adoption rates of the important best practices in ML \cite{Serban2020Practices}. In addition, compared to experienced online data-intensive organizations, our study show that majority of organizations have not achieved the capability required to enable continuous deployment and operations of ML models in production. However, there is great awareness of these amongst the practitioners as evidenced by their continued efforts to improve their practices and tools. We make the following observations concerning the current state of practice  in many organizations. These areas would greatly benefit from future research contributions.
+
+%Highlight the most important or most surprising observations
+First, streamlining data handling practices in order to get good quality data is an arduous task given increasing amounts of data, challenging data types and widening regulatory oversight around personal data. As a result, data handling workflows tend to induce long ML production cycles. Establishing efficient data handling procedures would shorten ML production cycles and increase experimentation for R\&D purposes. \DIFaddbegin \DIFadd{\textcolor{orange}{Although feature stores have emerged as an intermediate solution towards solving data discoverability constraints, most organizations are yet to adopt this solution.}
+}\DIFaddend 
+
+% the amounts of data to use for ML is increasing but is often arriving at long time intervals,  especially for organisations that handle either sensitive personal data (public agency, healthcare, pharmaceutical) or data collection is done by external parties (consultancies, Energy). This shows that most organisations are not yet dealing with real-time data, which would further complicate the ML pipelines. However, the late arrival of data lengthens the release cycle time (and the rate of updates) of ML models in production. As such, organizations need separate and well-established access procedures and contracts for using sensitive data for R\&D. In addition, different techniques are needed to ensure quality in each data update, for example when older data gets updates from a power plant on next day or gets overwritten due to logging faults in data collection software.
+Second, maintaining a ML system involves monitoring and evaluating procedures to ensure high availability and to control for model staleness respectively. Data distributions may change over time meaning that models may have an implicit viability lifespan. Due to the availability of tools, teams tend to focus on monitoring infrastructure while model evaluation tends to be conducted on a case by case basis. Issues such as model explainability, control for bias, feature attribution continues to be an open challenges from a tooling perspective and developing practice. 
+
+% Second, the data collection practices for ML in most of the organizations do not largely use or incorporate feedback from inference data. The organizations that are working on well-established ML problems, such as speech recognition, chatbots and impressions in marketing, tend to have data collection practices wherein inference data is logged and used to build training data corpus. For ML problems in IoT, the data collection practices in the organizations deal with large scale amounts of data from IoT devices as well as multiple data integration from heterogeneous sources. The latter requires establishing practices to effectively store as well as easily discover relevant data and process the complex domain features of the collected data. At the same time, even though the deployment of ML models on the edge devices can be done with tools (e.g., AWS IoT Greengrass and Azure IoT edge) there is a need to address security and safety concerns. Presently, monitoring practices at the edge are largely for robust connectivity and data flows.
+
+% Monitoring at different stages of ML pipepines
+
+Third, we observe that a significant number of organizations use a wide collection of tools to support their ML development as opposed to using an integrated MLOps platform. This is mainly due to desired flexibility and access to low-level features when necessary. Some topical areas with defacto tooling include version management, containerization and monitoring. Other areas continue to have multiple tooling options. We further note that there are industry wide efforts to standardize model serving through open development of a serving API which is realized by products such as NVIDIA's Triton Inference Server\DIFdelbegin \DIFdel{(https://bit.
+ly/3Brm3Wv).
+}\DIFdelend \DIFaddbegin \DIFadd{.
+}\DIFaddend 
+
+%Topical areas such as version management, containerization, container orchestration and monitoring have defacto solutions. Model serving is mainly REST based In addition, none of the organizations are using ML model serving tools, such as TensorFlow Serving, and model registry tools with up-to-date view of running ML pipelines and the versioned data sources in use. This observation is more pronounced in large organization that are in early stages of operationalizing ML-enabled software system. Lack of mature tools and the need for the tools to support specific technology stack hinder the adoption of the existing tools. For example, most organizations started by developing custom deployment servers to serve their ML solutions. Meanwhile, there are efforts in the industry to standardise the model serving process where ML frameworks provide prepackaged servers that are can be easily containerised for immediate deployment. Additionally, huge efforts and expertise are required to integrate and maintain the tools.
+
+
+%Third, with the common practice of using data from sources outside the control of the development team most organizations do not have in place well-established mechanisms of detecting any changes in data that could lead to system disruptions. Data validation tools proposed in literature to help with the continuous tracking of data quality are not used due to their limited capability but in some cases the task is delegated to the third party vendors. A practice complimentary to data-validation is to assess the performance of ML model when deciding whether a trained model can pushed to the serving stack. This is mostly practiced by the organization during evaluation of trained models and after integration tests wherein accuracy of ML model is evaluated on large set of unseen data. Generally, no observed controls for potential model bias drift or feature attribution/explainability.
+
+%Fourth, a significant number of organizations employ custom tools rather than using MLOps platforms in training and tracking the different experiment of ML models. In addition, none of the organizations are using ML model serving tools, such as TensorFlow Serving, and model registry tools with up-to-date view of running ML pipelines and the versioned data sources in use. This observation is more pronounced in large organization that are in early stages of operationalizing ML-enabled software system. Lack of mature tools and the need for the tools to support specific technology stack hinder the adoption of the existing tools. For example, most organizations started by developing custom deployment servers to serve their ML solutions. Meanwhile, there are efforts in the industry to standardise the model serving process where ML frameworks provide prepackaged servers that are can be easily containerised for immediate deployment. Additionally, huge efforts and expertise are required to integrate and maintain the tools. 
+
+%  Did we find anything that differs from what the big players have reported (or what was not on their papers at all)
+
+
+A main threat to the validity of our study relates to external validity and generalization of the findings. These were mitigate by the inclusion of diverse set of organizations from multiple domains and sizes. Most of the participating companies were global organizations %and where possible deviations of the practices in different regions were shared by the practitioners.
+While we cannot generalize the findings across the entire population, they do provide insight into the state-of-practice of ML especially in contexts having similar organisational profiles. 
+
+
+
+%Huge discrepancies and challenges are observed from the different dimensions of data management practices, particularly those related to data discoverability and accessibility as well as data validation and integrity.
+
+
+
+% Monitoring efforts currently focused in data quality, model quality and infrastructure, no observed controls for potential model bias drift or feature attribution (aka explainability)
+
+% Having different size of companies helped identify issues related to smaller organizations. Current literature is based on large organizations with significant resources
+
+
+
+\DIFaddbegin \subsection{\DIFadd{Implications to Research}}
+
+
+\subsection{\DIFadd{Implications to Practice}} \DIFaddend
