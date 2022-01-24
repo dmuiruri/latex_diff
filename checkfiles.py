@@ -49,7 +49,19 @@ def process_files():
                 cmd = command(dir, file)
                 subprocess.run(cmd, shell=True)
 
+def process_references():
+        """
+        Process process
+        """
+        print('>> {}'.format(process_references.__name__))
+        tool = './latexdiff/latexdiff '
+        arg1 = 'manuscript/mlopsv1/main.bib '
+        arg2 = 'manuscript/mlopsv2/main.bib '
+        output = '> manuscript/mlopsdiff/main.bib'
+        cmd = tool + arg1 + arg2 + output
+        subprocess.run(cmd, shell=True)
 
 if __name__ == '__main__':
     test_function()
     process_files()
+    process_references()
