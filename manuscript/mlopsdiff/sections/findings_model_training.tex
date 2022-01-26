@@ -41,7 +41,10 @@ Although \DIFdelbegin \DIFdel{NN frameworks }\DIFdelend \DIFaddbegin \DIFadd{ML 
 %DIFDELCMD < %%%
 \DIFdelend Overall, challenges in model training relate to infrastructure costs, complexities of tuning\DIFaddbegin \DIFadd{, }\DIFaddend and identifying explainable factors about a model's performance.
 
-\subsection{Model evaluation and experiment management}
+%DIF >  Summary table for practices and challenges
+\DIFaddbegin \input{tables/practices_challenges}
+
+\DIFaddend \subsection{Model evaluation and experiment management}
 Model training is \DIFdelbegin \DIFdel{considerably }\DIFdelend an iterative process \DIFdelbegin \DIFdel{involving (1) determining }\DIFdelend \DIFaddbegin \DIFadd{with distinct stages; determining the }\DIFaddend suitability of data and algorithms, \DIFdelbegin \DIFdel{(2) parameter and hyperparameter optimization}\DIFdelend \DIFaddbegin \DIFadd{parameter }\DIFaddend and \DIFdelbegin \DIFdel{(3) }\DIFdelend \DIFaddbegin \DIFadd{hyper-parameter optimization, and }\DIFaddend model evaluation. %DIF < These iterations result in multiple model variants with their respective attributes, such as accuracy and parameter settings, which calls for 
 Managing metadata from these \DIFdelbegin \DIFdel{experiments makes the training process }\DIFdelend \DIFaddbegin \DIFadd{stages makes the ML workflow }\DIFaddend traceable and reproducible.
 

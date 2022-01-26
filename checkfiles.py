@@ -65,4 +65,3 @@ if __name__ == '__main__':
     test_function()
     process_files()
     process_standalone_files()
-    process_references()
