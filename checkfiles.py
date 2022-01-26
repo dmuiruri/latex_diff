@@ -49,32 +49,20 @@ def process_files():
                 cmd = command(dir, file)
                 subprocess.run(cmd, shell=True)
 
-def process_references():
+def process_standalone_files():
         """
-        Process references
+        Process standalone files in the project's root folder
         """
-        print('>> {}'.format(process_references.__name__))
+        files = ['main.bib', 'main.tex']
         tool = './latexdiff/latexdiff '
-        arg1 = 'manuscript/mlopsv1/main.bib '
-        arg2 = 'manuscript/mlopsv2/main.bib '
-        output = '> manuscript/mlopsdiff/main.bib'
-        cmd = tool + arg1 + arg2 + output
-        subprocess.run(cmd, shell=True)
-
-def process_main():
-        """
-        Process main file
-        """
-        print('>> {}'.format(process_main.__name__))
+        print('>> {}'.format(process_standalone_files.__name__))
         tool = './latexdiff/latexdiff '
-        arg1 = 'manuscript/mlopsv1/main.tex '
-        arg2 = 'manuscript/mlopsv2/main.tex '
-        output = '> manuscript/mlopsdiff/main.tex'
-        cmd = tool + arg1 + arg2 + output
-        subprocess.run(cmd, shell=True)
+        for f in files:
+            cmd = tool + 'manuscript/mlopsv1/{} manuscript/mlopsv2/{} > manuscript/mlopsdiff/{}'.format(f, f, f)
+            subprocess.run(cmd, shell=True)
 
 if __name__ == '__main__':
     test_function()
     process_files()
-    process_main()
+    process_standalone_files()
     process_references()
