@@ -31,11 +31,17 @@ python checkfiles.py
 - Working directory is `latex_diff` or the directory where the project is cloned.
 - Download the revised version `v2` of the manuscript from from overleaf, the downloaded file is usually a zip file.
 - Unzip the obtained file
-  `unzip mlopsv2.zip -d manuscript/mlopsv2`
+  ```
+  unzip v2.zip -d manuscript/mlopsv2
+  ```
 - Run the script that checks for diffs
-  `python checkfiles.py`
+  ```
+  python checkfiles.py
+  ```
 - Zip the resulting files containing Latexdiff's markdown
-  `zip -vr mlopsdiff.zip mlopsdiff/ -x "*.DS_Store"`
+  ```
+  zip -vr mlopsdiff.zip mlopsdiff/ -x "*.DS_Store"
+  ```
 - Upload the resulting zip file to overleaf
   New Project -> Upload project -> Select a .zip file
 
