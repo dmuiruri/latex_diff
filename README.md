@@ -43,7 +43,9 @@ python checkfiles.py
   zip -vr mlopsdiff.zip mlopsdiff/ -x "*.DS_Store"
   ```
 - Upload the resulting zip file to overleaf
+  ```
   New Project -> Upload project -> Select a .zip file
+  ```
 
 Overleaf will unpack the file and compile the project.
 
