@@ -66,10 +66,12 @@
 \DIFaddend \begin{table*}[t]
  \centering
   \caption{Summary of ML usecase, frameworks, data sources and storage platforms across cases. (*of the ML usecase)}
-  \DIFdelbeginFL %DIFDELCMD < \begin{tabular}{p{0,5cm}p{3,4cm}p{2cm}p{2,7cm}p{1,6cm}p{2,7cm}}
-%DIFDELCMD <     %%%
-\DIFdelendFL \DIFaddbeginFL \begin{tabular}{p{0,4cm}p{2,2cm}p{3cm}p{1,7cm}p{2cm}p{0,8cm}p{2,3cm}}
-    \DIFaddendFL \toprule
+  \begin{tabular}{p{0,4cm}p{2,2cm}p{3cm}p{1,7cm}p{2cm}p{0,8cm}p{2,3cm}}
+    \multicolumn{7}{l}{
+    (Cases often use cloud storage providers with data centers in Finland or within the European Union, following customer}\\
+    \multicolumn{7}{l}{ preferences or regulatory constraints) }\\
+    \multicolumn{7}{l}{GCP: Google Cloup Platform, AWS: Amazon Web Services, AC: Azure Cloud}\\
+    \toprule
     \textbf{Case} & \DIFaddbeginFL \textbf{\DIFaddFL{Interviewee Role}} & \DIFaddendFL \textbf{ML usecase (Type)} & \textbf{Domain*} &\textbf{Data Source} & \textbf{Storage} & \textbf{ML-Framework} \\
     \toprule \\
     A & \DIFaddbeginFL \DIFaddFL{Chief ML Eng., Founder }& \DIFaddendFL Object Detection (NN) & IoT & Camera & \DIFdelbeginFL \DIFdelFL{Google Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{GCP }\DIFaddendFL & Tensorflow \\
@@ -89,15 +91,9 @@
     O & \DIFaddbeginFL \DIFaddFL{Solution Architects (2)}& \DIFaddendFL ML pipeline automation (Non-NN) & IT services & Internal Systems & \DIFdelbeginFL \DIFdelFL{Azure Cloud }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{AC }\DIFaddendFL & - \\
     P & \DIFaddbeginFL \DIFaddFL{Data Scientist }& \DIFaddendFL Marketing/campaign management (NN) & Media & Internal systems & AWS & Scikit-learn, Tensorflow, fastText \\
     \hline
-    \DIFaddbeginFL 
-
-       
-    \multicolumn{7}{l}{
-    Organizations often use cloud storage providers with data centres  either in Finland, close proximity to Finland or within}\\
-
-    \multicolumn{7}{l}{the European Union area following customer preferences or regulatory constraints. In certain cases, data is stored in private }\\
-
-    \DIFaddendFL \end{tabular}%
+    \DIFaddbeginFL
+    \DIFaddendFL
+    \end{tabular}%
   \DIFdelbeginFL %DIFDELCMD < \label{tab:data_source_storage_mlframeworks}%%%
 \DIFdelendFL \DIFaddbeginFL \label{tab:data_source_storage_mlframeworks_interviewees}\DIFaddendFL %
 \end{table*}%
