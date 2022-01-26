@@ -51,7 +51,7 @@ def process_files():
 
 def process_references():
         """
-        Process process
+        Process references
         """
         print('>> {}'.format(process_references.__name__))
         tool = './latexdiff/latexdiff '
@@ -61,7 +61,20 @@ def process_references():
         cmd = tool + arg1 + arg2 + output
         subprocess.run(cmd, shell=True)
 
+def process_main():
+        """
+        Process main file
+        """
+        print('>> {}'.format(process_main.__name__))
+        tool = './latexdiff/latexdiff '
+        arg1 = 'manuscript/mlopsv1/main.tex '
+        arg2 = 'manuscript/mlopsv2/main.tex '
+        output = '> manuscript/mlopsdiff/main.tex'
+        cmd = tool + arg1 + arg2 + output
+        subprocess.run(cmd, shell=True)
+
 if __name__ == '__main__':
     test_function()
     process_files()
+    process_main()
     process_references()
