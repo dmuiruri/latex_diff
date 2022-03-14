@@ -11,6 +11,9 @@ ignored_files = ['IEEEcsmag.cls', 'IEEEtran.bst', 'IEEEtran.cls', 'IEEEtranS.bst
     'README', 'main.bib', 'main.tex', 'main-diff.tex', 'mlopsv1.zip', 'mlopsv2.zip', '.DS_Store']
 folders = ['sections', 'tables']
 
+old_ver = 'mlops_v2' #'mlopsv1'
+new_ver = 'mlops_v3'
+
 def test_function():
     """
     Test the execution of the tool
@@ -30,9 +33,9 @@ def command(dir, file):
     Create a command to execute
     """
     tool = './latexdiff/latexdiff '
-    arg1 = 'manuscript/mlopsv1/{}/{} '.format(dir, file)
-    arg2 = 'manuscript/mlopsv2/{}/{} '.format(dir, file)
-    output = '> manuscript/mlopsdiff/{}/{}'.format(dir, file)
+    arg1 = f'manuscript/{old_ver}/{dir}/{file}'#.format(dir, file)
+    arg2 = f' manuscript/{new_ver}/{dir}/{file}'#.format(dir, file)
+    output = f' > manuscript/mlopsdiff/{dir}/{file}'#.format(dir, file)
     return tool + arg1 + arg2 + output
 
 def process_files():
@@ -40,11 +43,11 @@ def process_files():
     Check all files and conduct differences.
     """
     print('>> {}'.format(process_files.__name__))
-    v1 = './manuscript/mlopsv1/{}'
-    v2 = './manuscript/mlopsv2/{}'
-    for dir in os.listdir('./manuscript/mlopsv1'):
-        if os.path.isdir(v1.format(dir)) and os.path.isdir(v2.format(dir)) and dir in folders:
-            for file in os.listdir('./manuscript/mlopsv2/{}'.format(dir)):
+    v1 = f'./manuscript/{old_ver}/'
+    v2 = f'./manuscript/{new_ver}/'
+    for dir in os.listdir(f'./manuscript/{old_ver}'):
+        if os.path.isdir(v1 + dir) and os.path.isdir(v2 + dir) and dir in folders:
+            for file in os.listdir(f'./manuscript/{new_ver}/' + dir):
                 print('{}:{}'.format(dir, file))
                 cmd = command(dir, file)
                 subprocess.run(cmd, shell=True)
@@ -58,7 +61,8 @@ def process_standalone_files():
         print('>> {}'.format(process_standalone_files.__name__))
         tool = './latexdiff/latexdiff '
         for f in files:
-            cmd = tool + 'manuscript/mlopsv1/{} manuscript/mlopsv2/{} > manuscript/mlopsdiff/{}'.format(f, f, f)
+            cmd = tool + f'manuscript/{old_ver}/{f} manuscript/{new_ver}/{f} > manuscript/mlopsdiff/{f}'
+#            cmd = tool + f'manuscript/{old_ver}/{} manuscript/{new_ver}/{} > manuscript/mlopsdiff/{}'.format(f, f, f)
             subprocess.run(cmd, shell=True)
 
 if __name__ == '__main__':
