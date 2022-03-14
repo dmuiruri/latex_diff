@@ -1,88 +1,8 @@
 \begin{table*}[ht]
     \footnotesize
     \centering
-    \DIFdelbeginFL %DIFDELCMD < \resizebox{1.00\textwidth}{!}{%
-%DIFDELCMD <     \begin{tabular}{lp{1,8cm}p{1,7cm}p{2cm}p{2cm}p{1,8cm}p{2,5cm}p{2cm}}
-%DIFDELCMD <     \toprule
-%DIFDELCMD <     
-
-%DIFDELCMD <          \textbf{Case} &\textbf{Version Management}& \textbf{Container Platform}& \textbf{ML Training Workflow} & \textbf{ML Experiment Tracking}& \textbf{Model Repository} & \textbf{ML Deployment, Serving}& \textbf{Monitoring}\\
-%DIFDELCMD <          \toprule
-%DIFDELCMD <          A & Github, Gitlab, Bitbucket & Kubernetes & Apache Airflow & Tensorboard  &  GC Container Registry & Embedded with over the air updates & Logging, Grafana
-%DIFDELCMD <          \\ \hline
-%DIFDELCMD <          
-
-%DIFDELCMD <          B & Git & Kubernetes & Custom & Metadata  & - & API endpoint using Bamboo & -
-%DIFDELCMD <          \\ \hline
-%DIFDELCMD <          
-
-%DIFDELCMD <          C & Github & OpenShift & Custom & None & Nexus, S3 object storage &  REST API endpoint on OpenShift, & (Prometheus, Grafana)*
-%DIFDELCMD <           \\ \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          D & Git & Kubernetes & Argo & Hashing & -& API & Prometheus, Grafana
-%DIFDELCMD <           \\ \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          E & GitHub & Kubernetes & Custom & Metadata  & PostgreSQL &- & Prometheus, Grafana
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          F & - & Kubernetes & -& Metadata & -& natively supports REST API endpoint on Kubernetes & Logging, Elastic Search, tool's Web UI
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          G & GitHub & Kubernetes & Custom, Metaflow & MLflow,  & Docker registry & gRPC API endpoint on Kubernetes, Kafka & -
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          H & Git & AWS Elastic Container & Apache Airflow & -& S3 storage & - & AWS CloudWatch, Splunk
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          I & GitLab & - & AWS SageMaker & AWS SageMaker & & -
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          J & - & Kubernetes & AzureML & - & Azure container registry & Edge Server& Azure Monitor
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          K & Git & -& Azure ML & & - & Streamlit & -
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          L & -& -& Azure ML & - & - & R-Shiny apps & -
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          M & - & -& -&- & 
-%DIFDELCMD <          Nexus repository & Batch prediction & -
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          N & Git & AWS lamda & AWS SageMaker & AWS SageMaker & S3 storage, Databricks model registry* & Batch prediction, Java apps & AWS CloudWatch
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          O & Git, DVC & Kubernetes & Apache Airflow, Kubeflow & MLflow, kubeflow & MLFlow model registry & REST API on Kubernetes & Logging, Grafana
-%DIFDELCMD <           \\  \hline
-%DIFDELCMD <           
-
-%DIFDELCMD <          P & - & - & Databricks & MLflow & S3, MLFlow model registry & API, batch, embedded & -
-%DIFDELCMD <           \\  
-%DIFDELCMD <          
-
-%DIFDELCMD <         %\multicolumn{2}{r}{\textbf{Total}} & 21875 \\ \cline{3-3}
-%DIFDELCMD <         %\multicolumn{2}{r}{\textbf{Primary studies from search-string strategy}} & 47 \\ 
-%DIFDELCMD <          \bottomrule
-%DIFDELCMD < 
-
-%DIFDELCMD <     \end{tabular}% 
-%DIFDELCMD <     }
-%DIFDELCMD <     %%%
-\DIFdelendFL \caption{Tools (*planned, - tool information not provided)}
-   \DIFaddbeginFL \resizebox{1.00\textwidth}{!}{%
+    \caption{Tools (*planned, - tool information not provided)}
+   \resizebox{1.00\textwidth}{!}{%
     \begin{tabular}{lp{1,8cm}p{1,7cm}p{2cm}p{2cm}p{1,8cm}p{2,5cm}p{2cm}}
     \toprule
 
@@ -142,5 +62,5 @@
          \bottomrule
 
     \end{tabular}}
-    \DIFaddendFL \label{tab:databases}
+    \label{tab:databases}
 \end{table*}

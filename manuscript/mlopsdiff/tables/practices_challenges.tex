@@ -1,10 +1,120 @@
 % Table summary of practices in ML flow
-\DIFdelbegin %DIFDELCMD < \begin{table*}[t]
-%DIFDELCMD <   %%%
-\DIFdelendFL \DIFaddbeginFL \begin{table*}[h!]
-  \DIFaddendFL \caption{Summary of practices and challenges}
+\begin{table*}[h!]
+  \caption{Summary of practices and challenges}
   \centering
-  \resizebox{15cm}{8cm}{%
+  \DIFdelbeginFL %DIFDELCMD < \resizebox{15cm}{8cm}{%
+%DIFDELCMD <   \begin{tabular}{p{1,8cm}p{9cm}p{8cm}}
+%DIFDELCMD <     \toprule
+%DIFDELCMD <      & \textbf{Practices} &\textbf{Challenges}  \\
+%DIFDELCMD <     \toprule 
+%DIFDELCMD <     \multicolumn{2}{l}{ \textbf{ML workflow}} \\ 
+%DIFDELCMD <     % Data Management
+%DIFDELCMD <     \multirow{4}{*}{ Data management } & 
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Batch or stream data loads largely from internal systems, third party vendors or devices and sensors
+%DIFDELCMD <        \item Co-location of data and compute to reduce I/O latency in data transfer
+%DIFDELCMD <        \item Selecting data storage formats (e.g., Apache Parquet) with great consideration of scalability, portability, ML frameworks
+%DIFDELCMD <        \item Data documentation (e.g., data catalogue) for fast data identification
+%DIFDELCMD <        \item Employing data validation approaches (e.g., descriptive statistics and schema) that are tailored to the types of data 
+%DIFDELCMD <        \item Maintaining data quality by a dedicated team or third party vendor
+%DIFDELCMD <        \item Determining data quality metrics from domain knowledge especially in highly specialized settings
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     &
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        %\item Organizations contend between using public cloud infrastructure or private infrastructure due to data security and residency constraints.
+%DIFDELCMD <        \item Determining ownership of data quality aspects especially in large organizations or when data collection is outsourced
+%DIFDELCMD <        \item IoT related factors such as sensor outage, network latency or low traffic priority, sensor quality etc.
+%DIFDELCMD <        \item Programming defaults in data collection components can lead to poor data quality through subtle hard to notice errors.
+%DIFDELCMD <        \item Lack of standardized annotation formats across DL networks especially in computer vision reduces interoperability across network architectures.
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize} \\
+%DIFDELCMD <     
+
+%DIFDELCMD <     % Model Training
+%DIFDELCMD <     \midrule
+%DIFDELCMD <     \multirow{3}{1,8cm}{Model training \& evaluation} & 
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Selecting ML algorithm based on available data and learning problem formulation during requirement elicitation and exploratory experiments
+%DIFDELCMD <        \item Using heuristics to compliment or over ML algorithm when constrained by regulations or the complexity of models
+%DIFDELCMD <        \item Employing transfer learning to effectively and accurately train DL models.
+%DIFDELCMD <        \item Flexibility to choose standard ML frameworks e.g. Tensorflow and PyTorch as popular in DL, and Scikit-Learn and XGBoost in non-DL
+%DIFDELCMD <        \item Using ML frameworks that offer great flexibility, efficiency and usability 
+%DIFDELCMD <        \item Employing multiple approaches to evaluate quality of ML models e.g., using validation dataset stratified by quality
+%DIFDELCMD <        \item Managing and tracking model evaluation results using experiment tracking tools, or metadata and hash-based approaches.
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     &
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item The cost of training deep learning models from a clean start can be prohibitively high
+%DIFDELCMD <        %\item In some IoT cases, different data regimes can emerge from a sensor's contextual environment. In some cases, such an outcome may mean training multiple models since deploying a single model may result in poor inference.
+%DIFDELCMD <        \item Determining model explainability
+%DIFDELCMD <        \item Feature extraction and hyper parameter tuning can be a time consuming activity especially in organization with different types of data.
+%DIFDELCMD <        \item Model benchmarking was highlighted as an inherently difficult task given that it is challenging to replicate publicly available state of the art models and related results.
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize} \\
+%DIFDELCMD <      \midrule
+%DIFDELCMD <     % Monitoring
+%DIFDELCMD <     \multirow{3}{1,8cm}{Model Deployment \& Monitoring} & 
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Inference serving through REST based API endpoints deployed in public cloud environments
+%DIFDELCMD <        \item Inference serving with strict latency requirements through gRPC endpoints as opposed to REST endpoints.
+%DIFDELCMD <        \item Model deployment for either batch inference or online inference purposes
+%DIFDELCMD <        \item Monitoring at different parts of the pipeline, to ensure data quality, model quality and performance and infrastructure utilization
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     &
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Deploying models within organizations that do not use the cloud environment can be a lengthy process due to relevant data governance protocols.
+%DIFDELCMD <        \item Monitoring model or data drift in deployed systems can be a challenge due to lack of visibility especially in scenarios where input data cannot be saved due to GDPR related constraints.
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     \\
+%DIFDELCMD <         % Tools and infrastructure in ML Pipelines
+%DIFDELCMD <     \midrule
+%DIFDELCMD <     \multirow{3}{*}{\textbf{ML Pipeline}} & 
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Version control code and all pipeline related artifacts e.g. in git, and provision execution environment using infrastructure-as-code frameworks e.g. Terraform
+%DIFDELCMD <        \item Encapsulating ML training workflows in docker containers to increase portability 
+%DIFDELCMD <        \item Using common container orchestration platforms e.g., Kubernetes to build scalable containerised pipelines
+%DIFDELCMD <        \item Using ML workflow automation tools e.g. Argo and kubeflow to execute schedule ML training pipelines and queues
+%DIFDELCMD <        \item Tracking ML training experiments largely in custom ways e.g. hashing and custom web tools but also with ML workflow automation tools.
+%DIFDELCMD <        \item Employing continuous integration tools e.g., Jenkins to test and build docker images prior to deployment
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     &
+%DIFDELCMD <     \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD <        \item Maintaining an up to date stack of tools frameworks requires rigorous testing to avoid regression errors and dependency breaks across tool chains.
+%DIFDELCMD <        \item Pipelines can become quite complex especially when dealing with complex DL architectures where multiple models are maintained.
+%DIFDELCMD <        \item Skills required to run end-to-end automated ML pipelines are not easily available.
+
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD <     \end{itemize}
+%DIFDELCMD <     \\
+%DIFDELCMD < 
+
+%DIFDELCMD <     \midrule
+%DIFDELCMD <     
+
+%DIFDELCMD <     \end{tabular}%
+%DIFDELCMD <     }
+%DIFDELCMD <   %%%
+\DIFdelendFL \DIFaddbeginFL \resizebox{15cm}{8cm}{%
   \begin{tabular}{p{1,8cm}p{9cm}p{8cm}}
     \toprule
      & \textbf{Practices} &\textbf{Challenges}  \\
@@ -34,10 +144,10 @@
     \midrule
     \multirow{3}{1,8cm}{Model training \& evaluation} & 
     \begin{itemize}
-       \item Selecting ML algorithm based on available data and learning problem formulation during requirement elicitation and exploratory experiments
+       \item Selecting ML algorithm based on available data and learning problem formulation during requirements elicitation and exploratory experiments
        \item Using heuristics to compliment or over ML algorithm when constrained by regulations or the complexity of models
        \item Employing transfer learning to effectively and accurately train DL models.
-       \item Flexibility to choose standard ML frameworks e.g. Tensorflow and PyTorch as popular in DL, and Scikit-Learn and XGBoost in non-DL
+       \item Flexibility to choose standard ML frameworks e.g., Tensorflow and PyTorch as popular in DL, and Scikit-Learn and XGBoost in non-DL
        \item Using ML frameworks that offer great flexibility, efficiency and usability 
        \item Employing multiple approaches to evaluate quality of ML models e.g., using validation dataset stratified by quality
        \item Managing and tracking model evaluation results using experiment tracking tools, or metadata and hash-based approaches.
@@ -69,16 +179,16 @@
     \midrule
     \multirow{3}{*}{\textbf{ML Pipeline}} & 
     \begin{itemize}
-       \item Version control code and all pipeline related artifacts e.g. in git, and provision execution environment using infrastructure-as-code frameworks e.g. Terraform
+       \item Version control code and all pipeline related artifacts e.g., in git, and provision execution environment using infrastructure-as-code frameworks e.g., Terraform
        \item Encapsulating ML training workflows in docker containers to increase portability 
        \item Using common container orchestration platforms e.g., Kubernetes to build scalable containerised pipelines
-       \item Using ML workflow automation tools e.g. Argo and kubeflow to execute schedule ML training pipelines and queues
-       \item Tracking ML training experiments largely in custom ways e.g. hashing and custom web tools but also with ML workflow automation tools.
+       \item Using ML workflow automation tools e.g., Argo and kubeflow to execute schedule ML training pipelines and queues
+       \item Tracking ML training experiments largely in custom ways e.g., hashing and custom web tools but also with ML workflow automation tools.
        \item Employing continuous integration tools e.g., Jenkins to test and build docker images prior to deployment
     \end{itemize}
     &
     \begin{itemize}
-       \item Maintaining an up to date stack of tools frameworks requires rigorous testing to avoid regression errors and dependency breaks across tool chains.
+       \item Maintaining an up-to-date stack of tools and frameworks requires rigorous testing to avoid regression errors and dependency breaks across tool chains.
        \item Pipelines can become quite complex especially when dealing with complex DL architectures where multiple models are maintained.
        \item Skills required to run end-to-end automated ML pipelines are not easily available.
     \end{itemize}
@@ -88,5 +198,5 @@
 
     \end{tabular}%
     }
-  \label{tab:practices_challenges}%
+  \DIFaddendFL \label{tab:practices_challenges}%
 \end{table*}%

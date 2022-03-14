@@ -1,80 +1,13 @@
-%DIF < This section presents empirical studies on development, deployment, and maintenance of ML-enabled systems. The focus is on works that describe the characteristics of industrial ML workflows and pipelines for ML systems.
-%DIF < \red{should we add a section intro here? In other sections there is something, but here not?}
-\DIFdelbegin %DIFDELCMD < 
 
-%DIFDELCMD < %%%
-\DIFdelend 
-\subsection{Software engineering \DIFaddbegin \DIFadd{(SE) }\DIFaddend for \DIFdelbegin \DIFdel{machine learning}\DIFdelend \DIFaddbegin \DIFadd{ML}\DIFaddend }
-\DIFdelbegin \DIFdel{Consideration and adaptation }\DIFdelend \DIFaddbegin \DIFadd{Adaptation and incorporation }\DIFaddend of well-established \DIFdelbegin \DIFdel{software engineering (SE ) methods and approaches in ML systems have been reported to be crucial \mbox{%DIFAUXCMD
-\cite{Amershi2019}}\hskip0pt%DIFAUXCMD
-. This perspective shifts the focus from just ML algorithms to also include }\DIFdelend \DIFaddbegin \DIFadd{SE methods in the development of ML systems are crucial \mbox{%DIFAUXCMD
-\cite{Amershi2019}}\hskip0pt%DIFAUXCMD
-because they emphasize }\DIFaddend other important aspects \DIFdelbegin \DIFdel{of ML model development and operations in production, such as data management and serving infrastructures \mbox{%DIFAUXCMD
-\cite{Sculley2015}}\hskip0pt%DIFAUXCMD
-. Evidence of the integration between SE approaches and ML workflow is in MLOps (machine learning operations), a term used to show the extension of DevOps philosophy of increased agility and automation to the ML workflows \mbox{%DIFAUXCMD
-\cite{Zhou2020MLOps}}\hskip0pt%DIFAUXCMD
-. In support of the latter, different tools are used to provide automation in ML workflows.
-%DIF < However, improved integration in the other areas is needed, particularly software testing because either the current approaches do not suffice for ML component \cite{Murphy2007testing, Braiek2020} or have low adoption rates \cite{Serban2020Practices}.
- }\DIFdelend \DIFaddbegin \DIFadd{beyond ML algorithms \mbox{%DIFAUXCMD
-\cite{Sculley2015}}\hskip0pt%DIFAUXCMD
-. With the practices, organizations can address several challenges reported at the different stages of the taxonomy that depicts the evolution of the use of ML components in software-intensive systems (experimentation, non-critical deployment, critical deployment, cascading deployment, and autonomous ML components) \mbox{%DIFAUXCMD
-\cite{Lwakatare2019}}\hskip0pt%DIFAUXCMD
-.
-}\DIFaddend 
+\subsection{Software engineering (SE) for ML}
+Adaptation and incorporation of well-established SE methods in the development of ML systems are crucial \cite{Amershi2019}because they emphasize other important \DIFaddbegin \DIFadd{engineering }\DIFaddend aspects beyond ML algorithms \cite{Sculley2015}. With the practices, organizations can address several challenges reported at the different stages of the taxonomy that \DIFdelbegin \DIFdel{depicts the evolution of the use }\DIFdelend \DIFaddbegin \DIFadd{depict evolution }\DIFaddend of ML components in software-intensive systems (experimentation, non-critical deployment, critical deployment, cascading deployment, and autonomous ML components) \cite{Lwakatare2019}.
 
-\DIFdelbegin \DIFdel{Best SE practices in ML are identified and their adoption in the industry is surveyed in \mbox{%DIFAUXCMD
-\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
-.The identified }\DIFdelend \DIFaddbegin \DIFadd{Serban and van der Blom \mbox{%DIFAUXCMD
-\cite{Serban2020Practices} }\hskip0pt%DIFAUXCMD
-developed a catalog of }\DIFaddend 29 SE practices \DIFdelbegin \DIFdel{in ML are classified into six categories: (1) }\DIFdelend \DIFaddbegin \DIFadd{for ML applications based on literature and later measured their adoption rate through a survey with 313 practitioners.The catalog includes SE practices about }\DIFaddend data (e.g., employing sanity checks for all external data sources), \DIFdelbegin \DIFdel{(2) }\DIFdelend training (e.g., use versioning for data, model, \DIFdelbegin \DIFdel{configurations }\DIFdelend and training scripts), \DIFdelbegin \DIFdel{(3) }\DIFdelend coding (e.g., using continuous integration), \DIFdelbegin \DIFdel{(4) }\DIFdelend deployment (e.g., \DIFdelbegin \DIFdel{enabling shadow }\DIFdelend \DIFaddbegin \DIFadd{automate model }\DIFaddend deployment), \DIFdelbegin \DIFdel{(5) }\DIFdelend team (e.g., collaborating with multidisciplinary team members), and \DIFdelbegin \DIFdel{(6) }\DIFdelend governance (enforcing fairness and privacy)\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
-. According to the authors \mbox{%DIFAUXCMD
-\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
-, the least adopted practices --  related to feature management, writing tests, shadow deployment and automated hyper-parameter optimization -- require effort, knowledge and tool support. This interview study provides some validation and in-depth interpretation to the survey findings related to the adoption of practices  \mbox{%DIFAUXCMD
-\cite{Serban2020Practices}}\hskip0pt%DIFAUXCMD
-}\DIFdelend . \DIFaddbegin \DIFadd{Compared to our study, some of the reported SE practices are too general. The lack of details gives room to multiple interpretations, for example, the named practice to use continuous integration. In addition, we study practice enactment also by investigating the toolchains, for which the authors \mbox{%DIFAUXCMD
-\cite{Serban2020Practices} }\hskip0pt%DIFAUXCMD
-had only speculated to influence the adoption rate of specific practices. 
-}\DIFaddend 
+Serban and van der Blom \cite{Serban2020Practices} developed a catalog of 29 SE practices for ML applications based on literature and later measured their adoption rate through a survey with 313 practitioners.The catalog includes SE practices about data (e.g., employing sanity checks for all external data sources), training (e.g., use versioning for data, model, and training scripts), coding (e.g., using continuous integration), deployment (e.g., automate model deployment), team (e.g., collaborating with multidisciplinary team members), and governance (enforcing fairness and privacy). Compared to our study, some of the reported SE practices are too general. The lack of details gives room to multiple interpretations, for example, the named practice to use continuous integration. In addition, we study practice enactment also by investigating the toolchains, for which the authors \cite{Serban2020Practices} had only speculated to influence the adoption rate of specific practices. 
 
-\subsection{ML workflow and \DIFdelbegin \DIFdel{pipeline}\DIFdelend \DIFaddbegin \DIFadd{pipelines}\DIFaddend }
+\subsection{ML workflow and pipelines}
 
-ML workflows describe different tasks \DIFdelbegin \DIFdel{that are performed in order }\DIFdelend \DIFaddbegin \DIFadd{performed }\DIFaddend to develop, deploy\DIFaddbegin \DIFadd{, }\DIFaddend and operate ML models  \DIFdelbegin \DIFdel{in production }\DIFdelend \cite{Amershi2019}. ML pipelines \DIFdelbegin \DIFdel{are used to express the }\DIFdelend \DIFaddbegin \DIFadd{express }\DIFaddend complex input/output \DIFdelbegin \DIFdel{relationship between the }\DIFdelend \DIFaddbegin \DIFadd{relationships between }\DIFaddend different tasks/operators of an automated ML workflow \cite{Doris2021MLPipelines}. Generally, ML pipelines plug together several tools \DIFdelbegin \DIFdel{when automating the ML workflow }\DIFdelend \DIFaddbegin \DIFadd{to automate ML workflows }\DIFaddend \cite{Hummer2019IBM}.
+ML workflows describe different tasks performed to develop, deploy, and operate ML models  \cite{Amershi2019}. ML pipelines express complex input/output relationships between different tasks/operators of an automated ML workflow \cite{Doris2021MLPipelines}. Generally, ML pipelines plug together several tools to automate ML workflows \cite{Hummer2019IBM}.
 
-\DIFdelbegin \DIFdel{Typical lifecycle phases of ML workflow include }\DIFdelend \DIFaddbegin \DIFadd{A typical ML workflow life cycle includes }\DIFaddend model requirements, data collection, \DIFdelbegin \DIFdel{data cleaning, data labelling}\DIFdelend \DIFaddbegin \DIFadd{cleaning}\DIFaddend , \DIFaddbegin \DIFadd{labeling, }\DIFaddend feature engineering, model training, \DIFdelbegin \DIFdel{model evaluation, model deploymentand model }\DIFdelend \DIFaddbegin \DIFadd{evaluation, deployment, and }\DIFaddend monitoring  \cite{Amershi2019}. Studies show that end-to-end automation of ML \DIFdelbegin \DIFdel{workflow improves both the development timeand rate of deploying ML models \mbox{%DIFAUXCMD
-\cite{Hummer2019IBM,Doris2021MLPipelines}}\hskip0pt%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{workflows improves ML models’ quality, traceability, development time, and deployment rate  \mbox{%DIFAUXCMD
-\cite{Doris2021MLPipelines, Hummer2019IBM}}\hskip0pt%DIFAUXCMD
-}\DIFaddend . Furthermore, it allows organizations to \DIFdelbegin \DIFdel{(1) automate the orchestration of workflows steps, (2) track and reproduce the different outputs of ML workflow, and (3) reuse common steps of ML workflow across multiple ML-enabled }\DIFdelend \DIFaddbegin \DIFadd{reuse common workflow steps across multiple ML }\DIFaddend systems \cite{Baylor2017, Hummer2019IBM}.
-%DIF < In addition to ML workflow components, MLOps tools provide utilities to manage pipeline execution and schedule training jobs.
+A typical ML workflow life cycle includes model requirements, data collection, cleaning, labeling, feature engineering, model training, evaluation, deployment, and monitoring  \cite{Amershi2019}. Studies show that end-to-end automation of ML workflows improves ML models’ quality, traceability, development time, and deployment rate  \cite{Doris2021MLPipelines, Hummer2019IBM}. Furthermore, it allows organizations to reuse common workflow steps across multiple ML systems \cite{Baylor2017, Hummer2019IBM}.
 
-Few studies report \DIFdelbegin \DIFdel{in detail }\DIFdelend the characteristics of ML pipelines \DIFdelbegin \DIFdel{, }\DIFdelend in terms of their components\DIFdelbegin \DIFdel{and architectures\mbox{%DIFAUXCMD
-\cite{Hummer2019IBM,Doris2021MLPipelines}}\hskip0pt%DIFAUXCMD
-. Different from }\DIFdelend \DIFaddbegin \DIFadd{, architectures, and tools \mbox{%DIFAUXCMD
-\cite{Hummer2019IBM,Doris2021MLPipelines}}\hskip0pt%DIFAUXCMD
-. Unlike }\DIFaddend our qualitative analysis, Xin et al \cite{Doris2021MLPipelines} quantitatively \DIFdelbegin \DIFdel{analysed }\DIFdelend \DIFaddbegin \DIFadd{analyzed }\DIFaddend over 3000 ML pipelines at Google and presented their high-level characteristic \DIFdelbegin \DIFdel{in terms of }\DIFdelend \DIFaddbegin \DIFadd{concerning }\DIFaddend pipeline lifespan, complexity\DIFaddbegin \DIFadd{, }\DIFaddend and resource consumption. For the complexity of ML pipelines, the authors analyzed typical input data shape, feature transformation\DIFaddbegin \DIFadd{, }\DIFaddend and model diversity. Model diversity showed that a large portion \DIFdelbegin \DIFdel{used }\DIFdelend \DIFaddbegin \DIFadd{was }\DIFaddend neural networks (NN) (64\%) \DIFdelbegin \DIFdel{. The latter is informs the characteristic of ML pipeline since the choice of }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend model type and architecture \DIFdelbegin \DIFdel{has an influence on ML pipeline steps. From the analysis, the }\DIFdelend \DIFaddbegin \DIFadd{influence the characteristics of the resulting ML pipelines. The }\DIFaddend authors \cite{Doris2021MLPipelines} identified \DIFdelbegin \DIFdel{areas for optimizing the ML pipelines, that were mostly related to data management. }%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF < Data infrastructure is critical when developing an ML-enabled system because it influences the performance, fairness, robustness, safety, and scalability of the system. Developers of ML-enabled systems are often reported to struggle most with data acquisition and management \cite{makinen2021needs}. The latter includes spending a significant portion of time to analyse raw data and handle data errors, such as differences in data distribution at training and serving (training-serving skew). To ensure high-quality data in ML pipelines, data validation tools, such as TFX Data Validation \cite{Baylor2017} are proposed for detecting data errors. These have focus on the data cleaning phase, and there is a need for extension in both upstream (data creation) and downstream (live data after deployment) \cite{Sambasivan2021}.
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF < Environment abstractions
-%DIF < The operationalization of ML solutions often involve moving different assets (data, model, application) between different environments up until deployment to production environment. Typically, ML model is developed in an iterative manner in a local environment (e.g., using Jupyter Notebook) with a sample of offline dataset. For production deployment, ML model must be integrated with data infrastructure in order to use live training data as well as with the serving infrastructure in order to 
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF < Once, implemented ML model can be moved to staging/test environment before deployment to production. Despite the trend of training ML models on the cloud where there is abundant GPU-backed VMs and containers, cite{Hummer2019IBM} noticed a significant number of AI systems use on-premise servers, dedicated clusters, edge devices or a combination and this heterogeneity introduce a number of challenges. 
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF <  Metadata management
-%DIF < Tracking metadata of AI artifacts across the lifecycle is important for reproduciability of ML experiments. 
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF <  Monitoring
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \DIFadd{data management-related areas as key for optimizing ML pipelines. }\DIFaddend
+Few studies report the characteristics of ML pipelines in terms of their components, architectures, and tools \cite{Hummer2019IBM,Doris2021MLPipelines}. Unlike our qualitative analysis, Xin et al \cite{Doris2021MLPipelines} quantitatively analyzed over 3000 ML pipelines at Google and presented their high-level characteristic concerning pipeline lifespan, complexity, and resource consumption. For the complexity of ML pipelines, the authors analyzed typical input data shape, feature transformation, and model diversity. Model diversity showed that a large portion was neural networks (NN) (64\%) and model type and architecture influence the characteristics of the resulting ML pipelines. The authors \cite{Doris2021MLPipelines} identified data management-related areas as key for optimizing ML pipelines.

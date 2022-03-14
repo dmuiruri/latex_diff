@@ -1,28 +1,12 @@
-Today, artificial intelligence (AI) \DIFdelbegin \DIFdel{techniques are }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend incorporated in many real-world software systems and services. However, research on the development, deployment\DIFaddbegin \DIFadd{, }\DIFaddend and maintenance of AI-enabled systems in industrial settings report this to be a challenging task \cite{Sculley2015, Lwakatare2019}. Large companies, like Google \cite{Baylor2017} and Facebook \cite{Hazelwood2018Facebook}, often report their development \DIFdelbegin \DIFdel{and infrastructure practices }\DIFdelend \DIFaddbegin \DIFadd{practices and infrastructure }\DIFaddend for AI solutions that are useful for learning. However, many organizations are yet to adopt and tailor the suggested development practices and infrastructures to narrow the gap from mere prototyping to deploying to production AI solutions \cite{Serban2020Practices}. 
+Today, artificial intelligence (AI) is incorporated in many real-world software systems and services. However, research on the development, deployment, and maintenance of AI-enabled systems in industrial settings report this to be a challenging task \cite{Sculley2015, Lwakatare2019}. Large companies, like Google \cite{Baylor2017} and Facebook \cite{Hazelwood2018Facebook}, often report their development practices and infrastructure for AI solutions that are useful for learning. However, many organizations are yet to adopt and tailor the suggested development practices and infrastructures to narrow the gap from mere prototyping to deploying to production AI solutions \cite{Serban2020Practices}. 
 
-Machine learning (ML) is a subset of AI\DIFaddbegin \DIFadd{, }\DIFaddend and its techniques involve the use of high-quality data. \DIFdelbegin \DIFdel{In }\DIFdelend ML logic is not explicitly programmed but is rather learned from data. The development of industrial ML-enabled software systems involves ML pipelines that consist of several interlocking steps. To support the different steps, end-to-end in one environment, ML platforms like TensorFlow Extended (TFX) \cite{Baylor2017} \DIFdelbegin \DIFdel{, }\DIFdelend have been proposed to ensure increased automation across the steps.
+Machine learning (ML) is a subset of AI, and its techniques involve the use of high-quality data. ML logic is not explicitly programmed but is rather learned from data. The development of industrial ML-enabled software systems involves ML pipelines that consist of several interlocking steps. To support the different steps, end-to-end in one environment, ML platforms like TensorFlow Extended (TFX) \cite{Baylor2017} have been proposed to ensure increased automation across the steps.
 
-Since industrial ML pipelines can be complex, \DIFdelbegin \DIFdel{it is important to gain an understanding of their characteristics }\DIFdelend \DIFaddbegin \DIFadd{understanding their characteristics is essential}\DIFaddend . In a large \DIFdelbegin \DIFdel{data-intensive organization , }\DIFdelend \DIFaddbegin \DIFadd{organization }\DIFaddend like Google, \DIFdelbegin \DIFdel{all }\DIFdelend \DIFaddbegin \DIFadd{some }\DIFaddend 3000 ML pipelines comprising \DIFdelbegin \DIFdel{of }\DIFdelend over 450,000 trained ML models continuously update the models at least seven times a day  \cite{Doris2021MLPipelines}. %DIF < A one-off ML pipeline is typically initiated to produce trained ML models ‘on-demand’, whereas a continuous ML pipeline continuously updates the models in production \cite{Baylor2019}. 
-The need to support regular model training and updates in production is a common requirement in most industrial ML-enabled systems because \DIFdelbegin \DIFdel{, often, data is constantly being generated and }\DIFdelend the performance of models \DIFdelbegin \DIFdel{can deteriorate overtime }\DIFdelend \DIFaddbegin \DIFadd{deteriorates over time  }\DIFaddend \cite{Sculley2015}.
+Since industrial ML pipelines can be complex, understanding their characteristics is essential. In a large organization like Google, some 3000 ML pipelines comprising over 450,000 trained ML models continuously update the models at least seven times a day  \cite{Doris2021MLPipelines}. The need to support regular model training and updates in production is a common requirement in most industrial ML-enabled systems because the performance of models deteriorates over time  \cite{Sculley2015}.
 
-Most empirical literature presents development and maintenance practices of ML-enabled systems from the perspective of a single, often large and experienced online organization. In contrast, we aim to provide empirical evidence of the practices and infrastructure setups across a diverse set of companies in various domains. Through interviews, this study investigated ML workflow practices and toolchains \DIFaddbegin \DIFadd{that are }\DIFaddend used in the development, deployment, and maintenance of ML-enabled systems in selected \DIFdelbegin \DIFdel{multiple }\DIFdelend organizations in Finland. Our main contributions include:
+Most empirical literature presents development and maintenance practices of ML-enabled systems from the perspective of a single, often large and experienced online organization. In contrast, we aim to provide empirical evidence of the practices and infrastructure setups across a diverse set of companies in various domains. Through interviews, this study investigated ML workflow practices and toolchains that are used in the development, deployment, and maintenance of ML-enabled systems in selected organizations in Finland. Our main contributions include:
 \begin{itemize}
-    \item Empirical evidence of \DIFdelbegin \DIFdel{common }\DIFdelend \DIFaddbegin \DIFadd{the enacted }\DIFaddend practices in ML workflows  (Section \ref{sec:practices})\DIFaddbegin \DIFadd{,
-    }\DIFaddend \item Tool adoption in ML pipelines (Section \ref{sec:tools}) and areas \DIFdelbegin \DIFdel{to address in }\DIFdelend \DIFaddbegin \DIFadd{of }\DIFaddend future research (Section \ref{sec:discussion})\DIFaddbegin \DIFadd{.
-    }\DIFaddend %\item %Remaining challenges (Section \ref{sec:challenges}) and 
-\DIFdelbegin %DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \end{itemize}
- \DIFdelbegin %DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF < The rest of the paper is organized as follows. Section \ref{sec:background} presents background and related work within the scope of this research. The research approach of the study is presented in Section \ref{sec: methodology} . The study results are presented in Section \ref{sec:findings} and discussed in Section \ref{sec:discussion}. Finally, Section \ref{sec:conclusion} concludes the paper.
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-%DIF < \DIFdel{Few studies have sought to specify the best engineering practices and their effects across multiple organisations rather than focusing on a particular organization \mbox{%DIFAUXCMD
-\cite}\hskip0pt%DIFAUXCMD
-}%DIFDELCMD < {%%%
-\DIFdel{Serban2020Practices}%DIFDELCMD < }%%%
-\DIFdel{. }\DIFdelend
+    \item Empirical evidence of the enacted practices in ML workflows  (Section \ref{sec:practices}),
+    \item Tool adoption in ML pipelines (Section \ref{sec:tools}) and areas of future research (Section \ref{sec:discussion}).
+    %\item %Remaining challenges (Section \ref{sec:challenges}) and 
+\end{itemize}

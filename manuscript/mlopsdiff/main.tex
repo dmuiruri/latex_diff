@@ -1,7 +1,7 @@
 %\documentclass[conference]{IEEEtran}
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL manuscript/mlopsv1/main.tex   Sun Jan 23 19:12:08 2022
-%DIF ADD manuscript/mlopsv2/main.tex   Wed Jan 26 11:20:52 2022
+%DIF DEL manuscript/mlops_v2/main.tex   Mon Mar 14 16:04:58 2022
+%DIF ADD manuscript/mlops_v3/main.tex   Mon Mar 14 16:03:08 2022
 \documentclass{IEEEcsmag}
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
@@ -145,7 +145,7 @@
 
 \begin{document}
 
-\title{Practices and Infrastructures for ML Systems -- An Interview Study \DIFaddbegin \DIFadd{in Finnish Organizations}\DIFaddend }
+\title{Practices and Infrastructures for ML Systems -- An Interview Study in Finnish Organizations}
 
 \author{\IEEEauthorblockN{Dennis Muiruri,
 Lucy Ellen Lwakatare, Jukka K. Nurminen and
@@ -157,12 +157,8 @@ Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsin
 }
 
 \begin{abstract}
-\DIFdelbegin \DIFdel{The best practices }\DIFdelend \DIFaddbegin \DIFadd{Practices }\DIFaddend and infrastructures for developing and maintaining machine learning (ML) enabled software systems are often reported by \DIFdelbegin \DIFdel{large }\DIFdelend \DIFaddbegin \DIFadd{prominent }\DIFaddend and experienced data-driven organizations. However, little is known about the state of practice \DIFdelbegin \DIFdel{across other }\DIFdelend \DIFaddbegin \DIFadd{in other types of }\DIFaddend organizations. Using interviews, we \DIFdelbegin \DIFdel{investigated }\DIFdelend \DIFaddbegin \DIFadd{investigate }\DIFaddend practices and toolchains for ML-enabled systems from sixteen \DIFdelbegin \DIFdel{organisations in various domains }\DIFdelend \DIFaddbegin \DIFadd{organizations across various domains in Finland}\DIFaddend . Our study \DIFdelbegin \DIFdel{makes three broad observations related to data management practices , monitoring practices and automation practices in ML model training, }\DIFdelend \DIFaddbegin \DIFadd{observes the high adoption of some well-established AI engineering practices }\DIFaddend and \DIFdelbegin \DIFdel{serving workflows. These have limited number of generic }\DIFdelend \DIFaddbegin \DIFadd{tools, especially in conducting ML model experiments. However, the field still needs to define and establish }\DIFaddend practices and tools \DIFdelbegin \DIFdel{applicable across organizations in different domains.
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \DIFadd{for the end-to-end testing of ML systems and monitoring the ML models in production.
-}\DIFaddend \end{abstract}
+Practices and infrastructures for developing and maintaining machine learning (ML) enabled software systems are often reported by prominent and experienced data-driven organizations. However, little is known about the state of practice in other types of organizations. Using interviews, we investigate practices and toolchains for ML-enabled systems from sixteen organizations across various domains in Finland. Our study observes the high adoption of some well-established AI engineering practices and tools, especially in conducting ML model experiments. However, the field still needs to define and establish practices and tools for the end-to-end testing of ML systems and monitoring the ML models in production.
+\end{abstract}
 
 \maketitle
 
@@ -176,8 +172,7 @@ Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsin
 \input{sections/background_related_work}
 
 
-\section{\DIFdelbegin \textbf{\DIFdel{Research Method}}%DIFAUXCMD
-\DIFdelend \DIFaddbegin \textbf{\DIFadd{Methodology}}\DIFaddend }
+\section{\textbf{Methodology}}
 \label{sec: methodology}
 \input{sections/research_method}
 
@@ -196,16 +191,7 @@ Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsin
 \label{sec:discussion}
 \input{sections/discussion}
 
-\DIFdelbegin \section{\textbf{\DIFdel{Biographies}}%DIFAUXCMD
-}
-%DIFAUXCMD
-\addtocounter{section}{-1}%DIFAUXCMD
-%DIFDELCMD < \label{sec:biographies}
-%DIFDELCMD < \input{sections/biographies}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend %\section{Conclusion and future work}
+%\section{Conclusion and future work}
 %\label{sec:conclusion}
 %\input{sections/conclusion_future_work}
 
@@ -223,11 +209,9 @@ Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsin
 
 \small
 \bibliography{main}
-\DIFaddbegin 
 
-\section*{\textbf{\DIFadd{Biographies}}}
+\section*{\textbf{Biographies}}
 \label{sec:biographies}
 \input{sections/biographies}
-\DIFaddend 
 
 \end{document}
