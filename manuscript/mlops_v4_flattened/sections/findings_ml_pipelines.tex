@@ -1,0 +1,56 @@
+%\setcounter{subsection}{0}
+%\renewcommand*{\theHsection}{chX.\the\value{section}}
+This section presents common tools observed across the cases as summarized in Table~\ref{tab:databases}.
+
+
+
+\subsection{Version management}
+Model training code, often written in notebooks, and other project artifacts are version controlled using tools like Git, Gitlab, and Bitbucket. Data versioning is done by generating and versioning metadata using specialized tools, such as DVC. 
+Model training is conducted in public cloud settings for most cases, while a few cases train on-premises. To consistently provision training environments, 'infrastructure-as-code' practices, tools such as Terraform are used (Cases A and E).
+
+
+\subsection{ML training workflow}
+We observe that most case organizations containerize (using docker) individual workflow steps instead of encapsulating all workflow steps in a single container. In ML, containerization facilitates the isolation of different workflow tasks/steps, making the workflow modular, traceable, and reproducible. We further note that containers are commonly orchestrated using Kubernetes, allowing easier migration of pipelines (or parts of it) across infrastructure vendors. Data transfers across workflow steps during training are done using standard persistent volumes. However, large datasets may require using network mounts (Case F).
+
+ML workflows may include steps specifying feature extraction, model training, and validation. The complexity involved in these steps can vary depending on the ML domain. Workflows can be managed using a custom configuration tool (e.g., YAML-based) or a dedicated workflow toolkit. In complex ML setups, frameworks such as Argo (Case D) and Metaflow (Case G) are preferred. We note that although high-level ML workflow platforms, such as AWS SageMaker, provide an end-to-end integration advantage, they are also challenging to use when developing complex models due to inflexibility (Cases B, G).
+
+%were considered while in use in some projects within the organisations (Cases B and G), were not used in the studied use cases due to complex requirements of the models, high model training costs and cloud provider dependency. % Note that Case G issues were related to no support for streaming interface and also cloud agnostic. Case A tooling requires adding a YAML file that contains workflow steps in the project repository. The steps vary depending on model complexity and can be visualized using a directional acyclic graph (DAG), which models each step and dependencies between them (Case F).
+
+Those in support of custom tooling appreciate the flexibility to add different tools to the workflow. For example, a tool such as an explainer dashboard that facilitates a model's explainability is added as part of an ML workflow (Case A). An alternative workflow setting can have a single step containing multiple containers (data access data and model training). Customized components that provide access to these containers can be created to monitor independent utilization of computing resources at the container level (Cases C, G).
+
+One overall advantage of using ML workflow tools is that event-based training queues can be orchestrated, for example, based on the continuous arrival of training data.  Tools like Apache airflow provide the functionality to schedule model training based on given triggers.
+
+ML experiments can be tracked using custom web-based UI tools; this facilitates the evaluation of results and model performance comparison during the development process (Cases B and F). To their advantage, custom platforms can freely include any metadata the team considers relevant (Case F). Plugins can also be developed to integrate with existing open-source solutions such as MLflow (Case G). Low-level training metrics are observed with Tensorboard (Case A).
+
+\input{tables/tools_summary} % Tooling summary table 
+
+
+\subsection{Continuous integration (CI) and testing}
+
+CI tools, such as Jenkins, are used to run tests and build docker images based on model artifacts resulting from the training workflow (Cases A, D, G). Static code analysis and other tests check general container functionality during the image building process (Case A, G). Domain-specific tests are also executed to ensure the scope of a model's inputs and outputs is unchanged. These tests generally extend testing to the entire pipeline using small amounts of input data (Case D, F, G). 
+
+Docker images created from the CI system are (automatically) deployed to a staging environment for additional tests before deployment to production. Typically, this may include testing the model API's data type (Case A, D), ensuring a model makes sound predictions (Case E) and also ensuring that the deployment procedure loads a serialized model into the relevant API endpoints.
+
+Trained models are generally stored in classic data storage solutions or dedicated container image registries. For example, Case E stores a model and metadata about the model to a PostgreSQL data warehouse. Case C stores trained models in Nexus while case G uses docker registry to store the models before deployment to production.
+
+
+
+\subsection{ML deployment and serving}
+Generally, inference serving is either done in batch or online format. Majority of the models are deployed as REST (REpresentational State Transfer) API endpoints on public cloud or on-premise servers. Other deployment targets include embedding the model on the actual application, such as a mobile application (Case P) or deploying to IoT devices through over-the-air deployments or onsite installations.
+
+Models with strict inference latency requirements are deployed as gRPC (Google Remote Procedure Call) API endpoints. For example, case C business application has strict latency requirements and therefore uses the gRPC, which supports streaming.
+
+Most cases implement custom serving infrastructure, although emerging model serving systems like KFServing and Seldon are tested in Cases C and O, respectively. 
+
+Finally, we note that data scientists often do not undertake deployment-related tasks, but these are done by other dedicated teams with specialist knowledge, such as Kubernetes configuration (Case G).
+
+\subsection{Monitoring}
+After model deployment, monitoring is performed at different levels of granularity. The most common form of monitoring is undertaken for infrastructure management. Logging, monitoring, and alerting tools, like Prometheus and Kubernetes logging (stackdriver), are used to collect a cluster's performance metrics. These metrics are then visualized on dashboards using tools like Grafana, Tableau, or other business analytics tools. For models deployed as APIs, model metrics are logged and stored in Elasticsearch and BigQuery where the logs are used to perform model health and quality checks in production, e.g., monitoring average accuracy levels (Cases A, F, and O).
+
+Overall, maintaining the collective set tools used across a pipeline can develop into a complex task, especially when dealing with NN architectures.
+
+
+% case G  would say that monitoring is something we are very well aware that is sorely needed. But that which is still like an open question, how to solve it pretty much are you like, including what sort of operational teams to to be involved kind of maintaining the system ..And, yeah kind of we haven't yet gone into like the SLA s and stuff like that, because it's the lot in production. So we have been able to postpone it. But there are different while there's monitoring, and so many different levels, so, for example, you would want to know, like even when you're training or, or like you, if there's something going wrong, you need to be able to pinpoint at which point on which machine, something went wrong, and probably you won't be able to replicate the whole training process with the same data set this whole replication issue. And I feel like, we are probably not very, in a very good position with that, because the data platforms are not that we are using are not like we dislike data. versioning stuff, I think, is something we will probably run into later. But it is not solved yet.So this true monitoring on the training level, we have some tracing stuff. So we like on the network level, we know how the requests go. But that is like a super low level stuff. And if you there, we don't have like this, we would want to have is like the single pane of glass where we could see that this model is not being trained and it's moving, MLflow tries to be that a little bit, but it doesn't give like an active view into many parts of the system.And then on the endpoint level, of course, like when you have actually endpoints running and I mean, we will need endpoint level monitoring, where there are health checks and all kinds of quality metrics flowing in all the time, but that's not in place.
+
+% Summarise RQ2, the pipeline section
+

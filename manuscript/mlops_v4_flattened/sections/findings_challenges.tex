@@ -1,0 +1,45 @@
+
+
+%In this section we outline challenges observed from our discussions with the practitioners. We organise the challenges following the structure of ML workflow.
+
+\subsection{Data management challenges}
+%\red{in other places there is intro here, so pls add.}
+
+%\underline{\emph{Public cloud vs private infrastructure.}} Generally, practitioners indicate the cloud as a data storage solution provides scalability especially for unstructured data. However, there is an underlying trade-off between security and scalability, data can be stored in a highly secure environment but the advantage of a ready made and scalable environment provided by the cloud is lost. Sectors such as financial services, healthcare and public service agencies use the cloud reservedly due to strict regulatory constraints pertaining to handling of citizen data as described in GDPR guidelines. In such cases, teams must make efforts to anonymize the data prior to storing it in the cloud. In extreme cases, public clouds cannot be used at all which means such teams have to operate from private infrastructure.
+
+\underline{\emph{Designated ownership of data quality.}} While it is possible to separate teams responsible for maintaining data quality from maintenance of the data infrastructure. Some subtle errors may take long to uncover especially when focused on daily observations while in the long term trend, erroneous data entries are being stored only to be discovered in later stages of the ML pipeline. Without proper communication between these disparate teams/organizations, such challenges could lead to unexpected downtime, multiple false positive alarms or in the worst case scenario undetected model degeneration. %or cases where third party partners provide ML data (Cases O and P respectively), these setups can result in unique challenges such as unexpected breakage in schema following updates or changes in collected data in support of new features.
+
+\underline{\emph{Sensor based challenges.}} Controlling data quality in an IoT setting (cases I, J, K and L) was observed to have unique challenges. First, poor data quality in sensor based data is mostly manifested by missing data points and erroneous readings. This can occur due to various factors: (1) sensor outage due to loss of power. This problem is more pronounced in countries that tend to face power rationing as described by case I. (2) Network issues such low prioritization of sensor data traffic in mobile networks (case I), poor bandwidth that results in low latency in streaming applications(case J). (3) Sensor quality could also impact the quality of the data, case K described such a scenario where older utility metering devices tended to have unreliable sensors resulting in random data gaps. (4) Failure of sensor units in a group of distributed sensors can result in overall poor data quality. %(5) Domain knowledge was a concern expressed in cases I and J when mapping low level data collection interfaces to the expected high level variables used by data scientists or analysts.
+
+%\underline{\emph{Programming faults.}} An added source of poor data quality can be software bugs found in data collection software components provided by equipment vendors or contained in internal data collection systems. For example, case A described a scenario where data was constantly overwritten by incoming new data. A similar problem was described by case P where a third party vendor tasked to collect and provide data provided a continuously increasing data set which containing both new and old data. %(4) A sensor's fault tolerance design can also have an impact on data quality. Case K described a scenario where sensor outage was followed by recordings of aggregated sensor reading that were buffered while the sensor was offline.
+
+%According to case A, the effort required to generate and maintain quality good data often occurs as a surprise to most organizations. Further, organizations tend to believe they posses a large quantity of good data, but a closer look often reveals poor quality data barely usable for ML purposes.
+
+
+
+%\underline{\emph{Unstandardized data annotation formats.}} Data labelling or annotation was indicated as a source of unique challenges. A lack of interoperability between annotation formats was singled out in an object detection setting where case A suggested there are at least five different ways of instrumenting annotations but there is no standardised way of transforming between these formats. %Such as scenario appears when there is a need to use the same data across different deep learning architectures. The solution often involves developing custom tools to transform between desired formats, which adds to yet another list of custom tools to be maintained and the approach is not scalable. Another labelling challenge is differences of interpretation or observations among human annotators or validators, such situations require consensus.
+
+\subsection{Model Training challenges}
+%\red{in other places there is intro here, so pls add.}
+
+\underline{\emph{Cost of training models.}} Training DL models from a cold start is a long running process that requires significant computing resources. This can quickly translate to high costs incurred from accessing cloud based computing infrastructure. Although transfer learning can be used to overcome this problem, this may not be an options in some settings for example in highly regulated sectors such healthcare and finance or niche languages such as Finish. % model training is a long running processes
+
+% IoT setups
+\underline{\emph{Data regimes.}} Model training in IoT setups can introduce unique challenges in form of different data regimes that could emerge when a group of similar sensors present different contextual information. Depending with the degree of disparity across the sensors, the data could be unsuitable for training a single model or a single model trained from the aggregated data turns out unsuitable for collective inference. An example of such a challenge involves a distributed camera system located in locations with different light settings (case A). However, in some cases, a single model can be trained using data from locations that generate good quality data (case I).
+
+%\underline{\emph{Feature extraction and parameter tuning.}} Model training by itself is a straight forward activity, however, attaining good models is based on identifying good features and optimal hyper-parameters. Case F indicated that these activities are considerably time and resource consuming in addition to other pipeline maintenance tasks. %Hyper parameter optimization may require specialized frameworks
+
+%\underline{\emph{Model benchmarking.}} Benchmarking models was cited as an inherently challenging task (case M) primarily due to difficulties of replicating setups documented by publicly available models. Most of the publicly available models are state of the art and trained with very large datasets and significant computing resources which are often not available in a typical corporate setting.
+
+\subsection{Model deployment and monitoring challenges}
+%\red{in other places there is intro here, so pls add.}
+
+\underline{\emph{Deployment in private infrastructure.}} Models deployed in private infrastructure as opposed to the cloud tend to have an extra approval stage due to system access and related security features. The net effect is that the model development to deployment cycle is longer and less smooth due to this unautomated step.
+
+\underline{\emph{Visibility of inference in production.}} Once models are deployed in production settings, it can be challenging to monitor it's accuracy at inference. Any inaccurate predictions tend to be raised after the fact and in some cases the scenarios are difficult to reproduce for development purposes if the data used in production cannot be saved due to GDPR regulation (case D).
+
+\subsection{Tools and infrastructure related challenges}
+%\red{in other places there is intro here, so pls add.}
+
+\underline{\emph{Frameworks and tools updates.}} ML frameworks and related tools continuously evolve as new features are developed and others are deprecated. Maintaining an up to date stack can be challenging due to the rigorous testing required to avoid potential regressions, binary breaks and broken dependencies across tool chains, this process also can be used to determine the timing of upgrades.
+

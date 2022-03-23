@@ -1,0 +1,37 @@
+% Summary context, data collection, storage platforms
+\input{tables/data_source_storage_mlframeworks}
+This section presents common practices observed across the cases as summarized in Table~\ref{tab:practices_challenges}.
+
+\subsection{Data management}
+
+\underline{\emph{Data collection and storage}}
+% Batch vs Real-time streams
+are handled in various ways: batch loading data from internal systems, streaming from devices/sensors, extracting from third-party vendors APIs or open-source repositories. The training data is then commonly stored in cloud platforms, as shown from data sources in Table ~\ref{tab:data_source_storage_mlframeworks_interviewees}.
+
+Low-level metrics such as IOPS (I/O Operations Per Second) are considered when choosing a storage architecture; data fetching can constitute a sizeable amount of the overall model training time. Case E uses a mounted discs solution instead of a network drive accessed via a web interface. %I/O bound process.
+
+\underline{\emph{Data storage formats}} are factored in when considering the scalability of data processing pipelines, data portability between computing environments, and support of different ML frameworks. Case H uses Apache Parquet in favor of CSV (Comma Separated Values) or TSV (Tab Separated Values) file formats commonly used to store structured data for analytics purposes. Case G uses NetCDF to implement a generic data interface to abstract data across ML frameworks and computing platforms. 
+
+% \subsubsection{Data versioning}
+
+\underline{\emph{Data discoverability and accessibility}}
+%affects the rate of experimentation and development of ML features. This 
+is emphasized in setups that feature a data lake or where different data types are collected. Case O describes a solution to this problem based on maintaining a \textit{data catalog} where data and its value are described. %This supports faster identification of data and its associated value. An alternative approach is to assign metadata to ingested data and the metadata can be made visible through custom tools.
+Data governance and related processes can limit the use and scope of data accessible for ML purposes.
+%An example of such a data migration pattern involves an organization streaming data from its IoT devices to it's own cloud storage then a subset of the data is sent to a third party entity processor for cleaning or model training over an agreed interval. %https://www.linkedin.com/pulse/top-10-data-governance-anti-patterns-analytics-dave-wentzel
+
+\underline{\emph{Data validation}} techniques are commonly applied as a means of controlling data quality. However, data types influence the type of validation approaches used. Validation of Image/video, speech, and text tend to require human actors supported by custom tools. For example, a human validator ensures that objects fall within the annotated bounding boxes in an object detection setting. A human speech validator ensures recorded utterances are coherent and consistent with corresponding text. Case D uses additional heuristics for detecting anomalies between generated texts and submitted utterances. Numerical data types are usually easier to validate automatically.
+
+Data validation in Case O is done at a schema and data level where dedicated data stewards maintain the schema. Delegating quality control ensures the team managing the data lake ingests data indiscriminately. When data is sourced from third-party vendors, the vendor is expected to maintain quality controls (Case P).
+
+
+\underline{\emph{Data integrity}}
+controls ensure data is not changed unexpectedly. Case D and F apply hashing as part of their data processing pipelines; this ensures training data is verifiable and traceable with respect to a model's lineage. Additionally, this practice ensures that attempts to overwrite data are flagged appropriately.
+
+Generally, when hashing is not a suitable approach, for example, when dealing with image files, other custom tooling and heuristics are used to perform anomaly detection; Cases B and I make use of this approach.
+
+\underline{\emph{Data labelling and annotation}} tend to be undertaken manually using custom tools developed to standardize the process. Inconsistent labels are sometimes encountered due to subjective interpretations, resulting in poor data quality. Case B implements a standardized way of normalizing and giving common meaning to concepts to overcome such issues. 
+
+\underline{\emph{Data understanding}} requires domain knowledge for teams to generate valuable insights from data in specialized domains. Domain knowledge is cited as a necessity in the entire life cycle of the data. For example, handling data from chemical processes or mechanical parts of large systems as represented in cases I, J, and L.
+
+In general, challenges in data management practices are mainly attributed to data quality aspects. For example, sensor related problems, inconsistent labeling, programming errors in data handling software, etc.
