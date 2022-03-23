@@ -1,0 +1,65 @@
+
+%%%%%%%%%% Reviewer 2 %%%%%%
+% Most importantly, a more in-depth discussion on the results is expected. For example, what can we learn from the survey results, especially for the SE4AI or just the AI community? Does the result imply new challenges or directions in these communities? The discussion in Section 6 is superficial currently and is just informative to the practitioners who would like to build a ML production system.
+
+%%%%%%%%%% Reviewer 3 %%%%%%
+
+% 3. The paper can benefit from a broader discussion about the practices distilled and how they compare to related work. For example, with reference [2], which served as the main inspiration, and reference [5]. Is the taxonomy used at least similar to [2]?
+
+% 4. A similar discussion is needed for the distilled conclusions. For example, are the practices presented in the paper adopted in a similar manner as in, say, reference [5]? If not, is this because of regional bias or time differences?
+
+% Summarize and generalize the findings
+As the AI engineering field is still making progress in defining well-established processes, there is a need for details on how such systems are engineered~\cite{9121629}. Compared to existing literature, our findings of practices in ML workflows (Section 4) and tools in ML pipelines (Section 5) present the ‘how’ knowledge, in contrast to cataloging the practices or tools used in ML applications. This information can be used to objectively analyze practices applied across organizations and identify areas to guide future research efforts that seeks to improve knowledge in the field of AI engineering.
+
+Following the taxonomy and challenges described in~\cite{Lwakatare2019}, we consider the presented cases to be at the critical deployment stage where ML components need to co-exist with other general software components in production systems. We observed that practitioners were implementing practices that also address all of the challenges associated with the critical deployment stage~\cite{Lwakatare2019}. In particular, tools and practices adopted in ML workflows that are summarised in Table~\ref{tab:databases} and Table~\ref{tab:practices_challenges} respectively are indicative of these solutions. However, the challenge related to data management remains an active research area given the increasing amount of data and disparity in data types. Similarly, the challenges in subsequent stages also need to be addressed, particularly new techniques for monitoring the final models observed in both studies.
+
+% Practices distilled and how they compare to related work
+Similar to \cite{Serban2020Practices}, our results reveal a low adoption of SE best practices in the deployment category and a medium-to-high adoption in other categories (data, training, team, and coding). We also observed that smaller and younger organizations found it easier to adopt SE practices and emerging tools than older organizations with larger and distributed teams. We attribute this disparity to legacy systems and processes in the older organizations.
+
+While the survey~\cite{Serban2020Practices} indicated that teams with low experience have low adoption of the SE practices, we observed the contrary that there was a high adoption of the SE practices in teams with limited experience. We attribute this to the field of AI engineering having clearly defined the specific practices (e.g., tracking of model experiments) with supporting tools (MLflow, Kubeflow) in academia and industry. There are several areas in the AI engineering field where certain practices, such as data versioning, are considered valid but lack well-established knowledge of how to enact the practice and thus are least adopted in the industry.
+
+
+\subsection{Implications to research}
+\textit{Practices and tools for data discoverability.} Obtaining good quality training data for ML purposes is an arduous task more so due to the increasing amount of data being produced and the variability of data handling procedures across data types. Establishing efficient data discoverability procedures would shorten ML production cycles and increase experimentation of ML models for R\&D purposes.
+
+Although feature stores have emerged as an intermediate solution for managing data in ML settings, there lacks empirical research on their adoption rates, benefits, and applicability across various data types and business settings.% Why are practitioners yet to adopt the use of feature stores? feature engineering
+% for towards solving data discoverability constraints
+%Larger datasets are harder and costly to clean and maintain
+%and widening regulatory oversight around personal data
+
+\textit{Practices and tools for testing ML models and monitoring them in production.} We observed a lack of extensive end-to-end testing of ML pipelines in the studied cases. In some cases though, static analyses were performed on the ML training code and the resulting container images were tested. 
+
+We further note that monitoring of ML-enabled systems needs to extend beyond general infrastructure monitoring practices. A model's utility can be reduced by degrading accuracy levels as a result of model drift. Although data drift can be detected during model development, concept drift is more challenging to control in production settings. The empirical effects of concept drift and control practices are yet to be explored in literature.
+
+%Data distributions may change over time meaning that models may have an implicit viability lifespan. Due to the availability of tools, teams tend to focus on monitoring infrastructure while model evaluation tends to be conducted on a case by case basis. Issues such as model explainability, control for bias, or feature attribution continue remain open challenges from a tooling perspective and developing practice.
+
+\subsection{Implication to practice}
+\textit{Platforms vs independent tools in ML.} Generally, we make a similar observation to \cite{Doris2021MLPipelines} that practices in ML workflows and pipelines vary based on factors, such as the type of data being used in model training, availability of computing resources, and the type of ML solutions being developed. However, we also note two primary ways organizations developed their ML pipelines. One, they can compose a variety of tools to orchestrate a pipeline. Two, teams can use integrated frameworks/platforms such as SageMaker, which contain built-in tools for various stages of an ML pipeline. Most of the studied teams preferred the first approach because it offers flexibility and the ability to extract low-level information provided by independent tools. However, a common challenge when using separate tools is the required high maintenance efforts. The few teams that use the second approach preferred the instant integration and support offered by platform providers.
+
+\textit{Dominant tools.} Some well-established tools in SE remain useful when engineering AI systems. Such tools relate to version management (Git), containerization (Docker), and monitoring (Prometheus). However, some of these tools are arguably insufficient for other AI artifacts. For example, code version management tools are not suitable for data version management. Alternative tools dedicated to ML settings are emerging to address some of the inefficiencies encountered by practitioners. % Containers resulting from NN can be quite large to the 
+
+% Some well-established tools in SE remain useful when engineering AI systems. Such tools relate to version management (Git), containerization (Docker), and monitoring (Prometheus). However, some of these tools are arguably insufficient for other AI artifacts. For example, code version management tools are not suitable for data version management. Alternative tools dedicated to ML settings are emerging to address some of the inefficiencies encountered by practitioners.
+
+%We observe that a significant number of organizations use a wide collection of tools to support their ML development as opposed to using an integrated MLOps platform. This is mainly due to desired flexibility and access to low-level features when necessary. 
+
+\textit{Model inference infrastructure.} Following general SE practices, ML API endpoints are based on custom webservers. However, we note there are initiatives to standardize model serving servers through open development of a serving API, which is realized by frameworks and tools like NVIDIA's Triton Inference Server, TensorFlow Serving, Torchserve etc.
+
+\subsection{Validity Threats}
+
+\textit{Construct validity.} Considers whether the constructs discussed in the interview questions were interpreted in the same way by the researchers and the interviewees. This was mitigated by sharing the study objective and an outline of the interview guide to practitioners before the interview. During the interviews, a brief presentation was given by researchers to communicate the interview framework, and later the discussion was tailored to practitioners' expertise.
+
+
+\textit{External validity.} Concerns generalization of the findings and other threats that can cause incorrect conclusions to be drawn from the study. Despite having a global presence, the involved organizations are from one geographical location (Finland). This means the conclusions drawn about the state of practice and tools for ML may not be generalized for the whole SE industry population. 
+
+\textit{Reliability.} Concerns the extent to which data and analysis are dependent on specific researchers. This threat to validity was mitigated by having at least two researchers throughout the research process. Furthermore, the results were shared with practitioners to review before submission for publication.
+
+
+%Huge discrepancies and challenges are observed from the different dimensions of data management practices, particularly those related to data discoverability and accessibility as well as data validation and integrity.
+
+
+
+% Monitoring efforts currently focused in data quality, model quality and infrastructure, no observed controls for potential model bias drift or feature attribution (aka explainability)
+
+% Having different size of companies helped identify issues related to smaller organizations. Current literature is based on large organizations with significant resources
+
+
