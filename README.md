@@ -56,8 +56,7 @@ The resulting pdf will show the changes as shown in figure below
 ## latexexpand
 
 This tool was used to consolidate all the file structure used during
-the development of the manuscript ![development manuscript
-structure](./manuscript_file_structure.png)
+the development of the manuscript ![development manuscript structure](./manuscript_file_structure.png)
 
 ```
 ├── IEEEcsmag.cls
