@@ -51,3 +51,90 @@ Overleaf will unpack the file and compile the project.
 
 The resulting pdf will show the changes as shown in figure below
 ![sample tracked changes](./sample_changes_pg6.png)
+
+
+## latexexpand
+
+This tool was used to consolidate all the file structure used during
+the development of the manuscript ![development manuscript
+structure](./manuscript_file_structure.png)
+
+```
+├── IEEEcsmag.cls
+├── IEEEtran.bst
+├── IEEEtran.cls
+├── IEEEtranS.bst
+├── README
+├── images
+│   ├── company_overviews.png
+│   ├── company_overviews_horizontal.png
+│   ├── company_views_vertical.png
+│   ├── company_views_vertical_2.png
+│   ├── ml_workflow_overview.png
+│   └── mlops_overview.png
+├── latexpand
+│   ├── LICENCE
+│   ├── README
+│   ├── latexpand
+│   └── version.txt
+├── main.bib
+├── main.tex
+├── main_backup.bib.tex
+├── sections
+│   ├── appendix.tex
+│   ├── background_related_work.tex
+│   ├── biographies.tex
+│   ├── conclusion_future_work.tex
+│   ├── diff.tex
+│   ├── discussion.tex
+│   ├── findings.tex
+│   ├── findings_challenges.tex
+│   ├── findings_data_management.tex
+│   ├── findings_ml_pipelines.tex
+│   ├── findings_model_deployment.tex
+│   ├── findings_model_training.tex
+│   ├── findings_monitoring.tex
+│   ├── findings_testing.tex
+│   ├── introduction.tex
+│   ├── overview_of_the_cases.tex
+│   └── research_method.tex
+└── tables
+    ├── coding_framework.tex
+    ├── data_collect_store.tex
+    ├── data_source_storage_mlframeworks.tex
+    ├── interview_guide.tex
+    ├── ml_frameworks.tex
+    ├── practices_challenges.tex
+    ├── practitioners.tex
+    ├── projects_summary.tex
+    └── tools_summary.tex
+```
+The command shown below is used to extract the generate the file. More
+details on running the tool can be found on it's README file
+
+```
+latexpand/.latexpand main.tex --biber main.bib > main_flattened.tex
+```
+
+The files are then zipped into one project file which is then uploaded
+to overleaf for latex parsing. The IEEE files contain the necessary
+styling config
+
+```
+zip -vr main_flattened.zip main_flattened.tex IEEE* *.bib
+```
+
+The resulting zip file contains the following files
+```bash
+mlops_v4_flattened $ unzip -l main_flattened.zip 
+Archive:  main_flattened.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    48526  03-18-2022 14:38   main_flattened.tex
+   209203  03-18-2022 10:55   IEEEcsmag.cls
+    59215  03-18-2022 10:55   IEEEtran.bst
+   281957  03-18-2022 10:55   IEEEtran.cls
+    62786  03-18-2022 10:55   IEEEtranS.bst
+     5383  03-18-2022 10:55   main.bib
+---------                     -------
+```
