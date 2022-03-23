@@ -22,19 +22,19 @@ Data governance and related processes can limit the use and scope of data access
 
 \underline{\emph{Data validation}} techniques are commonly applied as a means of controlling data quality. However, data types influence the type of validation approaches used. Validation of Image/video, speech, and text tend to require human actors supported by custom tools. For example, a human validator ensures that objects fall within the annotated bounding boxes in an object detection setting. \DIFdelbegin \DIFdel{While a }\DIFdelend \DIFaddbegin \DIFadd{A }\DIFaddend human speech validator ensures recorded utterances are coherent and consistent with corresponding text. Case D uses additional heuristics for detecting anomalies between generated texts and submitted utterances. Numerical data types \DIFdelbegin \DIFdel{usually are }\DIFdelend \DIFaddbegin \DIFadd{are usually }\DIFaddend easier to validate automatically.
 
-Data validation in Case O is done at a schema and data level \DIFdelbegin \DIFdel{. A }\DIFdelend \DIFaddbegin \DIFadd{where }\DIFaddend dedicated data stewards maintain the schema. Delegating quality control ensures a team managing the data lake ingests data indiscriminately. When data is sourced from third-party vendors, the vendor is expected to maintain quality controls (Case P).
+Data validation in Case O is done at a schema and data level \DIFdelbegin \DIFdel{. A }\DIFdelend \DIFaddbegin \DIFadd{where }\DIFaddend dedicated data stewards maintain the schema. Delegating quality control ensures \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend team managing the data lake ingests data indiscriminately. When data is sourced from third-party vendors, the vendor is expected to maintain quality controls (Case P).
 
 
 \underline{\emph{Data integrity}}
-controls ensure data is not changed unexpectedly. Case D and F apply hashing as part of data processing pipelines; this ensures training data is verifiable and traceable with respect to a model's lineage. Additionally, this practice ensures that attempts to overwrite data are flagged appropriately.
+controls ensure data is not changed unexpectedly. Case D and F apply hashing as part of \DIFaddbegin \DIFadd{their }\DIFaddend data processing pipelines; this ensures training data is verifiable and traceable with respect to a model's lineage. Additionally, this practice ensures that attempts to overwrite data are flagged appropriately.
 
 Generally, when hashing is not a suitable approach, for example, when dealing with image files, other custom tooling and heuristics are used to perform anomaly detection; Cases B and I make use of this approach.
 
 \underline{\emph{Data labelling and annotation}} tend to be undertaken manually using custom tools developed to standardize the process. Inconsistent labels are sometimes encountered due to subjective interpretations, resulting in poor data quality. Case B implements a standardized way of normalizing and giving common meaning to concepts to overcome such issues. 
 
-\underline{\emph{Data understanding}} requires domain knowledge for teams to generate valuable insights from data in specialized domains. Domain knowledge is cited as a necessity in the entire life cycle of the data. For example, handling data from chemical processes or mechanical parts of large systems is represented in cases I, J, and L.
+\underline{\emph{Data understanding}} requires domain knowledge for teams to generate valuable insights from data in specialized domains. Domain knowledge is cited as a necessity in the entire life cycle of the data. For example, handling data from chemical processes or mechanical parts of large systems \DIFdelbegin \DIFdel{is }\DIFdelend \DIFaddbegin \DIFadd{as }\DIFaddend represented in cases I, J, and L.
 
-In general, challenges in data management practices are mainly attributed to data quality aspects. For example, sensor problems, inconsistent labeling, programming errors in data handling software, etc.
+In general, challenges in data management practices are mainly attributed to data quality aspects. For example, sensor \DIFaddbegin \DIFadd{related }\DIFaddend problems, inconsistent labeling, programming errors in data handling software, etc. \DIFdelbegin %DIFDELCMD < 
 
-
-
+%DIFDELCMD <  %%%
+\DIFdelend

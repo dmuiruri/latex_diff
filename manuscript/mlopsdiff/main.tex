@@ -1,7 +1,7 @@
 %\documentclass[conference]{IEEEtran}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL manuscript/mlops_v2/main.tex   Mon Mar 14 16:04:58 2022
-%DIF ADD manuscript/mlops_v3/main.tex   Mon Mar 14 16:03:08 2022
+%DIF ADD manuscript/mlops_v3/main.tex   Tue Mar 15 19:27:14 2022
 \documentclass{IEEEcsmag}
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
@@ -150,14 +150,19 @@
 \author{\IEEEauthorblockN{Dennis Muiruri,
 Lucy Ellen Lwakatare, Jukka K. Nurminen and
 Tommi Mikkonen}
-\IEEEauthorblockA{Department of Computer Science,
+\DIFdelbegin %DIFDELCMD < \IEEEauthorblockA{Department of Computer Science,
+%DIFDELCMD < University of Helsinki\\
+%DIFDELCMD < Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsinki.fi, 
+%DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \IEEEauthorblockA{Department of Computer Science,
 University of Helsinki\\
-Email: dennis.muiruri, lucy.lwakatare, jukka.k.nurminen,  tommi.mikkonen @helsinki.fi, 
+Email: dennis.muiruri@helsinki.fi, lucy.lwakatare@helsinki.fi, jukka.k.nurminen@helsinki.fi,  tommi.j.mikkonen@jyu.fi 
 }
-}
+\DIFaddend }
 
 \begin{abstract}
-Practices and infrastructures for developing and maintaining machine learning (ML) enabled software systems are often reported by prominent and experienced data-driven organizations. However, little is known about the state of practice in other types of organizations. Using interviews, we investigate practices and toolchains for ML-enabled systems from sixteen organizations across various domains in Finland. Our study observes the high adoption of some well-established AI engineering practices and tools, especially in conducting ML model experiments. However, the field still needs to define and establish practices and tools for the end-to-end testing of ML systems and monitoring the ML models in production.
+Practices and infrastructures for developing and maintaining machine learning (ML) enabled software systems are often reported by prominent and experienced data-driven organizations. However, little is known about the state of practice in other types of organizations. Using interviews, we investigate practices and toolchains for ML-enabled systems from sixteen organizations across various domains in Finland. Our study observes \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend high adoption of some well-established AI engineering practices and tools, especially in conducting ML model experiments. However, the field still needs to define and establish practices and tools for the end-to-end testing of ML systems and monitoring the ML models in production.
 \end{abstract}
 
 \maketitle
