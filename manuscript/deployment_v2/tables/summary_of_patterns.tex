@@ -1,0 +1,26 @@
+% Table summary of patterns
+\begin{table*}[ht!]
+\fontsize{7pt}{8pt}\selectfont
+% \renewcommand{\arraystretch}{1}
+% \renewcommand{\cellalign}{vh}
+% \renewcommand{\theadalign}{cc}
+
+ \centering
+  \caption{Summary of ML post-development and inference serving implementations}
+  \begin{tabular}{p{2.0cm}p{2.0cm}p{3.1cm}p{3.0cm}p{3.0cm}p{3.2cm}}
+    \toprule
+    \thead{Model versioning \\ and storage} & \thead{Quality assurance} & \thead{Monitoring} & \thead{Model packaging \\ and serving} &\thead{Inference serving}\\
+    \toprule \\
+    ML model versions are manually assigned (6/8 cases) or automatically derived (2/8 cases). Manual versioning primarily included annotating a number to a serialized model binary file, whereas in derived versioning, versioned-enabled storage facilitates and manages the model versions implicitly. 
+    & 
+    Quality assurance involves different testing types and measures used to increase the reliability of the models in the deployment stage. Sanity tests carried out locally are often applied (3/8 cases). Additionally, automated workflows use CI/CD systems (4/8) to manage different test types, while others rely on manually run tests (3/8).
+    &
+    Monitoring focuses on the availability of the system and the correctness of inference results. The inference service availability can be achieved in various ways, such as logging, monitoring API gateways, instance health reports, etc. Model performance metrics are collected whenever ground truth is available. Otherwise, other approaches, such as coverage metrics, detect if a model is still relevant.
+    &
+    Models and their associated dependencies are often packaged into docker containers (5/8 cases), although some setups do not make use of containers (2/8 cases), seemingly, where frequent and rapid deployments are required. The packaged binary may contain a standalone workflow script or an entire inference pipeline. Different serving patterns are applied: model as a service, model as a dependency, precompute or a hybrid of these patterns.
+    &
+    Inference serving can be provided as an online or batch service. Online serving is supplied as a real-time (latency-constrained) service (2/8 cases) or non-real-time service (4/8 cases). Inference pipelines feature where the inference process contains a pre-processing, inference and post-processing stage. These steps may be integrated or distinct subprocesses.
+    \\
+    \hline
+    \end{tabular}\label{tab: summary of deployment patterns}
+\end{table*}

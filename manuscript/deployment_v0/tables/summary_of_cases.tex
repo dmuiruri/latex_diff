@@ -1,0 +1,39 @@
+% Table summary of cases
+\begin{table*}[ht!]
+\fontsize{7pt}{8pt}\selectfont
+\renewcommand{\arraystretch}{1}
+\renewcommand{\cellalign}{vh}
+\renewcommand{\theadalign}{cc}
+
+ \centering
+  \caption{Summary of cases}
+  \begin{tabular}{p{0.6cm}p{3.2cm}p{2.5cm}p{3.2cm}p{3cm}p{3cm}}      
+    \toprule
+    \thead{Case} & \thead{Pre-Integration} & \thead{Quality\\ Assurance} & \thead{Server\\ Environment} &\thead{Inference} & \thead{Monitoring}\\
+    \toprule \\
+    1 & Model description (Bayesian) is compiled into a binary object wrapped in a library. 
+    Model versioning is dependent on code versioning. The model description does not require regular updates & Local sanity checks on model accuracy & Two server types: one dedicated to model fitting and inference and other servers dedicated to serving from the database Infrastructure is based on 25 compute nodes shared between the two server types & Inference is served through a REST API and data transferred in JSON format & Model accuracy and service level errors \\
+    \midrule[0.01pt]
+    2 & Solution contains two distinct models working together in a pipeline. Models are stored in AWS S3 buckets as binary objects. Model versioning is manually managed and updated weekly or when a new model is available & Collection of model performance metrics (e.g. precision) from a validation dataset. Check inference latency & Both models are packaged in the same docker container. Preprocessing and postprocessing functions are also in the same container. & An inference pipeline with pre and post-processing stages. gRPC protocol used to serve real-time predictions & Online monitoring of model performance metrics. Business-level metrics that involve correctly identified events in a stream. \\
+    \midrule[0.01pt]
+
+    3 & Solution contains two models applied to two different business cases. The models are stored in a cloud server. & Follows a comprehensive automated CI/CD approach. Sanity checks, unit tests, integration, and end-to-end tests are conducted & The two models are deployed into independent clusters. Docker containers are used to package servers and other services of the microservice & Implemented as an inference pipeline where the pre-processing and post-processing steps are detached from the inference server & Latency and availability aspects. \\
+    \midrule[0.01pt]
+
+    4 & Solution is based on a single model trained and stored in an S3 bucket where versioning is activated. Model versioning is managed by the bucket and updated on a scheduled routine & An automated CI/CD pipeline is used from the training to creating a deployment model. Sanity checks and basic tests are applied & The model and Python scripts are packaged into a docker container. & Provides batch and online inference. Serverless technologies are used to provide batch service. Online inference based on REST API & Scheduled batch runs. Availability of the online model. Model drift \\
+    \midrule[0.01pt]
+
+    5 & ML system contains six replicas of a model. Each model has a version of it stored in an S3 bucket. Models are updated 2-3 times a year, and retired models are stored locally & The process follows a CI/CD pipeline with staging and production environments. Locally conducted tests serve as acceptance criteria. Coverage and accuracy metrics are key model quality assessments & Each model binary is packaged in a docker container. Other components/scripts in the architecture are also packaged in independent docker containers & System provides batch inference using an inference pipeline. Pipeline mainly relies on messaging for communication. Each model serves inference via REST API to the calling agent & System availability is a key concern. Logs are collected across the system. Infrastructure resources monitored. \\
+    \midrule[0.01pt]
+
+    6 & Models can be trained and stored on the platform or uploaded as ready-made binaries in open standard formats. Asset-level versioning is achieved through project versioning, and an asset belongs to a given project. & An uploaded model is parsed, and some errors are fixed automatically, while others require manual intervention. No other elaborate testing or quality assurance mechanisms. & The server contains support for PMML and ONNX runtimes, among other ML framework dependencies packaged into an independent image. The server is converted into a Debian package for edge deployments. & Online and batch inference is performed using REST APIs. Edge deployments provide inference through a command-line utility & Model memory footprint and server memory metrics are provided through an API. Model scoring metrics are logged across subsequent model versions \\
+    \midrule[0.01pt]
+
+    7 & The ML system is based on a pipeline of two distinct models, one that generates features and another that provides inference. Multiple inference models are stored in an S3 bucket, and the storage manages model versioning. Each client has a custom inference model that is retrained daily after new data is obtained & Based on performing local tests and a human in the loop setup to validate the models & Model binaries and Python runtime dependencies are packaged in EC2 instances. Template configuration scripts are used to set up EC2 instances and local environments & The inference pipeline is automated using cloud-based tools, particularly to support the scaling of inference. Inference results are stored in a database for further report-generation purposes. & Model availability. Logs collected from systems and integrated alert systems are used to signal events. \\
+    \midrule[0.01pt]
+
+    8 & The ML system is deployed on an edge device, and models are stored in an AWS S3 bucket. Versioning of the model is manually conducted. A workflow that binds data and model versioning is applied & A CI/CD pipeline is applied where unit and integration tests are carried out. & Models and related dependencies are packaged in docker containers. The setup contains multiple containers that are orchestrated as services using docker-compose. The container is compressed into a zip file uploaded to the target environment & An inference pipeline containing pre/post-processing steps and inference. The system receives data in XML format and returns XML format data. The inference is based on messaging & Monitoring is integrated into an IoT platform where high-level metrics on the containers are indicated. Model drift is monitored based on performance metrics \\
+    \hline
+    \end{tabular}
+    \label{tab: summary of cases}
+\end{table*}

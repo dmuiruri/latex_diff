@@ -1,0 +1,59 @@
+\section{Discussion}
+\label{sec: discussion}
+Engineering aspects of ML-enabled software have gained much attention from practitioners and the research community due to
+complex workflows that require fundamentally different approaches, techniques, and tooling. This paper focused on deploying and integrating a selected trained ML model for inference provision in the larger software ecosystem. In addition, we identified standard practices as patterns in the deployment process gathered from evaluating different inference architectures and workflow setups across varying ML-enabled systems. This section discusses vital observations and implications of our study findings.
+
+
+\subsection{Deployment workflows in production settings}
+% RQ1) How are deployment workflows implemented in production settings? %includes monitoring
+ 
+A structured transition from ML experiments to functional inference systems is essential for a reliable and operational ML-enabled system. This process can be manually orchestrated or automated. The engineering effort applied at the post-development stage is focused on ensuring a model is available irrespective of the technical debt incurred. Effectively, the main objective is to minimize service downtime.
+
+The two characteristics that appear to inform the degree of workflow automation are the release frequency and maturity of operations. Deployment setups where models are released and updated frequently would benefit from automation. Still, this decision appears as a tradeoff between increased complexity and maintenance concerns on the one hand compared to flexibility and ease of releasing the software on the other. Combined with the maturity of operations, it would be convenient to conclude that mature operations tend to be automated. However, due to the tradeoffs indicated, a deployment process can be mature and still lack automation.
+
+A manual integration process mainly provides flexibility. The advantages of this approach are primarily seen in IoT setups with heterogeneous stacks (different platforms, hardware, and middleware providers). Engineers can freely select tools for their various workflow stages in such settings. At the same time, this approach can be tedious, less scalable, and prone to engineering errors.
+
+We note that an automated workflow reduces deployment overhead and supports continuous deployment of the inference model. Organizations that require multiple deployments (e.g. customized deployments) benefit from automation as it facilitates the scaling of operations. Further, the general ML workflow becomes reproducible, which is a requirement in regulated domains such as healthcare and finance.
+
+\begin{tcolorbox}[colback=white!73!white,colframe=gray!90!gray]
+ Several factors can influence the degree of workflow automation, e.g. frequency of model updates. The deployment workflow can be envisioned as a continuum between fully automated and manually driven processes. An engineering team can project an appropriate state on this continuum that supports high model availability in their domain. 
+\end{tcolorbox}
+
+\subsection{Deployment patterns}
+% RQ2) What patterns emerge in deployment workflows? The commonality of workflow stages across different ML domains
+Our study observed deployment patterns in model versioning and storage, quality assurance, monitoring, model packaging, and inference serving.
+
+\textit{Versioning and Storage}. Storage of inference models follows relatively standardized approaches using cloud-based solutions. Cloud providers offer programmable interfaces that seamlessly integrate with other tools in the deployment workflow. Versioning principles are more varied and freely applied. Complexity in versioning arises because a model is a function of data, algorithms, parameters, and hyper-parameters, all of which can change independently, leading to a new model version. A structured versioning approach is therefore required for reproducibility and lineage tracking. There are attempts at adopting the semantic versioning principles applied in traditional software engineering. However, this approach may have different meanings when applied to models, which could be updated due to factors such as improvement in accuracy, change in algorithms or architecture, etc. Such factors are not similar to binary breaks, new features, and bug fixes that drive semantic versioning of software. For integrated releases, versioning of ML-enabled software that indicates the model's version would be required. Automated workflows that use pipeline orchestration tools would also benefit from versioned pipelines.
+
+As observed in the cases, the inference model and code can be tightly coupled and versioned into one atomic release. This occurs when a model-as-a-dependency serving pattern is applied or designed, where the model and code are released using a similar cycle. Although this approach results in a consistently simplified versioning and release process, it may reduce flexibility. On the contrary, a model is a standalone artefact with an independent version and release cycle when using a loosely coupled approach. This approach provides increased flexibility, and the model and code can be developed independently.
+
+\textit{Quality assurance}. The quality assurance process is implemented to ensure that an inference system is highly available and the model produces tolerably accurate predictions. Although models undergo an evaluation process during experimentation, additional checks are implemented to ensure the correct model is picked for integration and the model performs as expected. Such checks could be locally run basic or automated tests within a CI/CD process. This practice increases the general reliability and robustness of the deployment process.
+
+\textit{Monitoring}. In production, monitoring also focuses on the availability of the deployed model irrespective of whether the model is used for internal purposes or by a third-party entity. Performance metrics collected from system logs and other telemetry tools ensure the visibility of utilization of the available infrastructure resources. Monitoring the model performance often requires the availability of ground truth or the application of other heuristics and metrics when the ground truth is unavailable.
+
+\textit{Model packaging}. Containers, particularly docker containers, are a standard solution for packaging models, their dependencies and other components in the architecture. In non-containerized deployments, run-time environments, dependencies, and models are installed directly on provisioned instances. Despite the apparent benefits of containerized deployments, the added complexity of managing such environments can present a maintenance barrier, especially when deploying many models at fast iterations. Additionally, conforming to a legacy technology stack can influence model packaging and integration approaches. As such, the model and the related dependencies are packaged in a manner that easily integrates with the rest of the software ecosystem.
+
+\textit{Inference serving}. A model serving pattern is one of the critical design decisions undertaken early in the design phase. All serving patterns provide feasible solutions, but maintenance, scalability, infrastructure utilization, and flexibility should be considered. Empirical evidence on the effects of different serving patterns remains scanty. As such, engineers rely on their experience to implement familiar design patterns and architectures. Refactoring a serving pattern requires significant effort; deciding which pattern to adopt should be evaluated before production.
+
+\begin{tcolorbox}[colback=white!73!white,colframe=gray!90!gray]
+ Model versioning, quality assurance, monitoring, model packaging, and selection of serving patterns are common aspects of ML deployment workflows. Currently, model versioning does not follow a standardized nomenclature. Quality assurance and monitoring activities are centred on ensuring deployed models' high availability and correctness. Model serving patterns significantly impact other system attributes, such as maintenance.
+\end{tcolorbox}
+
+\subsection{Inference architectures}
+%RQ3) What kind of inference architectures exist?
+The various architectural diagrams demonstrate that ML inference systems are implemented in various ways. This is because the designs are optimized around different non-functional requirements such as resilience, performance, and integrability to legacy systems. By selecting and implementing the components in the architecture with these attributes in mind, the overall architecture implicitly acquires some dominant attributes.
+
+These attributes can be achieved in a variety of ways. For instance, a resilient inference solution is meant to increase failure tolerance. Such a system may use message queues to communicate between components (e.g. Case 5) because data can be persisted and resent in case of the component failure in the pipeline. An alternative solution can be achieved through redundancy and replication for solutions that use container orchestration technologies such as Kubernetes. These details were not discussed, but the design implications were apparent in the analysis.
+
+The degree of modularity is a design aspect that varies across architectures. A modular design supports the scalability of an inference solution. In particular, a more complex solution benefits from a modular design by managing the complexity and isolating parts of the architecture that require different scaling approaches. First, the side effects of scaling segregated or integrated inference pipeline components should be considered because pre-processing and post-processing of data workloads could be optimized separately from the inference step. The tradeoff is a gain in scalability compared to a performance gain obtained from an integrated pipeline. Secondly, the degree of modularity can be viewed as a continuum from highly integrated to highly modular components. Moving towards a more modular architecture improves the scaling aspects of the system.
+
+% statefulness and HW utilization
+Legacy technology stacks can also affect the resulting architecture. Adapting the inference model to an existing stack often means the model can be adopted without significantly altering the current systems. The model is wrapped with the target technology and embedded into the existing software. With this approach, unforeseen side effects can emerge, such as combining a stateless inference code with a stateful application, effectively combining their related attributes.
+
+Inference performance is a commonly known concern. Model intrinsic methods such as quantization and pruning were not brought up. Instead, the choice of communication protocols was indicated to address performance issues in deployment. For example, WebSockets and gRPC were preferred over REST designs when implementing applications with near real-time response requirements.
+
+\begin{tcolorbox}[colback=white!73!white,colframe=gray!90!gray]
+ Inference systems can be designed in a variety of ways. The degree of modularity applied in the inference architecture can be used to support the management of the solution's complexity and scalability.
+\end{tcolorbox}
+
+

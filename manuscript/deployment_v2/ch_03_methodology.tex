@@ -1,0 +1,67 @@
+% Exploratory case studies are used as initial investigations of some phenomena to derive new hypotheses and build theories~\cite{easterbrook2008selecting}
+% "A multiple case study offers greater validity"~\cite{easterbrook2008selecting}
+
+\input{tables/case_overview}
+This study applies an exploratory multi-case study research design approach \cite{runeson2009guidelines}. The multi-case study research methodology is used because of its suitability in exploring complex phenomena in their real context~\cite{easterbrook2008selecting, runeson2009guidelines}. Ethnographic methods like interviews are a common way to collect data for case studies, especially for studies in software engineering processes~\cite{giray2021software}. We conducted semi-structured interviews with practitioners across eight companies, similar to previous studies~\cite{shankar2022operationalizing, baier2019challenges, lwakatare2019taxonomy}.
+
+% Image: an overview of the deployment process
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{deployment_highlevel_framework}
+\caption{A high-level view of ML post-development activities}
+\label{fig:deployment_highlevel_framework}
+\end{figure}
+
+\subsection{Research objectives}
+As discussed in section~\ref{sec: background and related work}, empirical studies in AI engineering \cite{bosch2021engineering} tend to explore the entire ML workflow and further focus on identifying challenges encountered in various workflow stages. This study focuses on the deployment and inference aspects of ML models in real-world production settings. This focus area is restricted to model deployment and monitoring. These are the last stages of the nine-stage ML workflow presented in Amershi et.al.~\cite {amershi2019software}. We delve into the intricacies of the workflow after a model is considered ready for integration and reliable to serve ML predictions. Figure~\ref{fig:deployment_highlevel_framework} depicts our considered workflow, where model integration activities include different model quality management activities, inference serving refers to activities undertaken to provision the model as a software component, and monitoring activities involve the tasks undertaken to gain insight over the overall system. Overall, our goal is to capture common themes of practices applied in converting inference code into an inference service.
+
+%\subsection{Research questions (RQ)}
+We interviewed practitioners with hands-on experience deploying ML systems to achieve our objective. A summary of the ML systems, 
+their respective deployment platforms and the case company's business sector is presented in Table~\ref{tab: ml_case_summary}. Our study seeks to answer the following questions:
+\begin{itemize}
+    \item RQ1) How are deployment workflows of ML models implemented in production settings?
+    \item RQ2) What recurrent themes emerge in deployment workflows of ML models? %patterns => recurrent themes => share characteristics
+    \item RQ3) How are inference architectures implemented?
+\end{itemize}
+
+\subsection{Case and Participant Selection}
+% Unit of analysis?
+A case in our multi-case study design approach represents an organization's deployed ML system. By focusing on deployed production systems, we aimed to ensure the interviewee references a tried and tested workflow irrespective of its efficiency. Our goal was to be able to discuss the adopted approaches and, potentially, the rationale of various design decisions.
+%The ML code has been deployed into production for an operational software application and service. 
+
+After contacting several companies, we selected companies whose ML-enabled systems had been deployed to production. Three of the companies that responded had participated in our previous study~\cite{muiruri2022practices}, while five cases were new to us. Interviewees in this study were required to be actively involved in deploying the ML system. This was necessary to facilitate a richer discussion on the technology stack choice and potential improvement areas, among other architectural decisions.
+
+
+\subsection{Data Collection}
+Eight semi-structured interviews were conducted, and two researchers were present during the interview sessions. One practitioner from an organization was interviewed, except in one case where two practitioners were involved. The interview sessions were guided by the list of questions in Table~\ref{tab: interview_questions}. These questions were sent to the case companies before the interview. This ensured that the company identified a person with the relevant system knowledge to participate in the discussion. Five company interviews were conducted virtually through video conferencing, and one interview was conducted in a physical meeting. Two companies involved in our previous study~\cite{muiruri2022practices} participated through email correspondence since we were familiar with their solution. All data was gathered between September 2022 and November 2022. All interview discussions were recorded and transcribed for analysis.
+
+Discussions with the interviewees did not strictly follow the order in the list of questions; instead, we probed the interviewee based on the breadth and depth of answers to a given query. Having two researchers in the interview sessions also ensured that all questions were addressed irrespective of the informal nature of the interviews. Virtual interviews were recorded using zoom\footnote{https://zoom.us/} and transcribed using Otter.ai\footnote{https://otter.ai/}. We manually corrected any transcription errors that appeared before starting the analysis process.
+
+ 
+\subsection{Data Analysis}
+% Image: our data analysis process
+\begin{figure}[b]
+\centering
+\includegraphics[width=\linewidth]{images/data_analysis_process.png}
+\caption{Data analysis process}
+\label{fig: data analysis process}
+\end{figure}
+
+The transcribed text was the primary input for the analysis process. Using the deployment process text descriptions for each case, the two researchers extracted the activities in the deployment process and, at the same time, visualized the inference architecture of the entire ML system. A summary of the deployment process and the inference system architecture were sent via email to each case for validation as well as to get further clarifications. Researchers initially identified standard practices that cut across the cases at this phase. 
+
+A systematic cross-case analysis~\cite{seaman1999qualitative} was conducted wherein using our interview questions (rows) and companies (columns), we formed a matrix~\cite{webster2002analyzing} and each response to a question by a given company was extracted, analyzed, and entered into a relevant cell in the matrix. Effectively, the matrix contained eight rows and six columns where a single cell represented a company and its approach to a given topical issue probed with a question. During this analysis process, any conceptual gaps identified in the responses were clarified with the interviewee through email correspondence. We synthesized an overall view for each row and summarised it as a topical deployment pattern.
+
+\input{tables/interview_questions_tab}
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=\linewidth]{deployment_highlevel_framework}
+% \caption{A high-level view of ML post-development activities}
+% \label{fig:deployment_highlevel_framework}
+% \end{figure}
+
+
+%We further depicted each case's inference architecture with a diagram we later sent to the interviewees for validation.
+
+% A straightforward research question concerned with how or why certain phenomena occur
+% Case study research uses purposive sampling rather than random sampling

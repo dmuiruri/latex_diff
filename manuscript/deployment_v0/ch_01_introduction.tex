@@ -1,0 +1,26 @@
+% I
+Machine learning (ML) models have increasingly become a part of many software systems in multiple industry sectors as companies seek to provide artificial intelligence (AI) backed services. For example, the healthcare sector has adopted ML methods to improve diagnosis~\cite{sharma2021systematic}, the finance sector has adopted ML approaches to price commodities~\cite{ghoddusi2019machine}, the agricultural industry has developed precision agriculture supported by ML~\cite{9505674}. These and other industries continue to adopt ML~\cite{jan2022artificial} on a wide range of applications. 
+
+Companies tend to begin the adoption of ML applications through experimental initiatives. Once an ML concept is sufficiently explored and validated, the journey begins to transition the model into a production-ready software system. This transition requires significant engineering effort across different stages of the ML lifecycle.~\cite{8498185, lwakatare2019taxonomy}.
+
+% II
+The engineering aspect of ML-based software ensures systems are developed, deployed, and maintained efficiently. Practitioners attempt to adopt traditional software engineering practices in ML workflows, but such methods are insufficient or require adaptation to cater to the development process of ML-enabled systems~\cite{amershi2019software}.  
+Research on software engineering for ML-based systems is primarily concentrated on challenges experienced during the development process~\cite{8498185, lwakatare2019taxonomy, giray2021software}. Very few studies provide an in-depth review of specific workflow stages, particularly practices carried out after the model training stage, where the model is moved to production systems. Therefore, this presents an opportunity for research that provides empirical evidence that attempts to define high-level standardized procedures. Further, studies that report engineering practices tend to bear the perspective of a single, often large, company whose engineering scale is not comparable to other companies~\cite{amershi2019software, soifer2019deep, Park}. The fundamental reason for the disparity lies in variations across factors such as infrastructure and data availability, research and development capabilities, and investment resources.
+%Several studies demonstrating the engineering practices of deploying ML models have been published from a one-company perspective. % reference papers published form FANG
+
+%Other studies focus on the general ML development workflow without providing an in-depth review of the deployment process
+% example reference paper https://arxiv.org/abs/2209.09125
+% https://dl.acm.org/doi/full/10.1145/3533378
+
+% III
+Our study addresses the empirical gap in the deployment of ML models, and in doing so, we make the following contributions. First, we present descriptions of different deployment workflows across various ML domains. Secondly, we synthesize deployment patterns observed at different stages of the deployment workflow: model storage and versioning, quality assurance, monitoring, and model packaging. Third, we also demonstrate varying inference and model-serving architectures.
+
+% IV
+Using semi-structured interviews with practitioners to collect data, we probe for detailed issues centred on deployment activities and the processes involved in maintaining the ML-enabled system in production. We use a descriptive case-study approach to characterize the various deployment processes and settings explored in a given interview. As such, we present multiple case studies and inference systems.
+
+% V 
+The findings presented in this study will provide a foundation to establish a high-level ML deployment workflow that can be adapted across multiple ML domains. Furthermore, by aggregating diverse inference architectures and deployment procedures, we facilitate an opportunity to compare and evaluate design merits at the early stages of system design. %and applicable practices can be adopted.
+
+% VI (Map of Paper)
+This paper is organized as follows: Section~\ref{sec: background and related work} provides background on the deployment of ML models, the scope of deployment activities covered in this paper, and also an overview of previous studies in operationalizing ML-enabled systems. Section~\ref{sec: methodology} presents the research protocol. The results are shown in section~\ref{sec: cases} and~\ref{sec: patterns} as independent case studies and identified patterns, respectively. The obtained results are discussed in section~\ref{sec: discussion}. Section~\ref{sec: validity} provides the validity analysis, while the concluding remarks are presented in section~\ref{sec: conclusion}.
+

@@ -1,0 +1,32 @@
+% Validity analysis
+\subsection{Construct validity}
+\label{subsec: construct validity}
+Construct validity means the correctness of concept and operational measures for the studied subjects. A common concern with interviews is the interpretation of concepts between interviewees and interviewers. The term deployment can be used to imply a broad spectrum of activities in software engineering. Therefore, we provided a scope of this process during the introduction, and we briefly presented results from our previous work~\cite{muiruri2022practices} to provide context, especially for case companies that were not part of the previous study.
+
+Secondly, certain aspects can be overlooked or forgotten due to the intricate process of implementing ML-enabled systems and the diverse array of potential solutions. To mitigate this, we provided a visual queue on a slide containing the topical areas we hoped to cover during the interview. 
+
+\subsection{Reliability}
+\label{subsec: internal validity}
+Reliability is concerned with biases and misinterpretations that may occur from researchers. Moreover, an interviewee's willingness to disclose a detailed view of internal processes may also raise a reliability concern. To mitigate these concerns, we assured interviewees of our discussions' privacy and confidentiality at the interview process's introduction stage. Where necessary, non-disclosure agreements were also signed. We also validated our case descriptions with the participating companies to ensure the processes and systems were well represented. Secondly, two interviewers participated in the interviews and the data analysis process to avoid misinterpretation of responses and reduce interpretation bias.
+
+\subsection{External validity}
+\label{subsec: external validity}
+External validity infers the extent to which we can generalize the findings beyond the scope of our study. Our study involved eight companies representing different ML-enabled systems across different AI domains. To some degree, the variance of plans and companies provides grounds to generalize our identified patterns across other ML engineering settings. On the other hand, the ML domain has been recently characterized by rapid evolution with the constant emergence of new architectures, applications, and tools. Consequently, engineering practices may change, making it challenging to predict the generalizability of our work to future AI-enabled systems. However, by focusing on the process, we can establish general principles and assume engineers will adequately apply appropriate tooling and sub-steps within their workflows.
+
+\section{Conclusion}
+\label{sec: conclusion}
+
+% Overview of the research problem
+In this study, we evaluated ML deployment practices across eight AI-enabled systems using multiple-case study design and conducting interviews with engineers. Our goal was to understand the following: 1) how deployment workflows are implemented in production settings, 2) what patterns emerge in deployment workflows, and 3) how inference architectures are implemented.
+
+% Findings
+Our study presents eight case studies outlining different deployment workflows. We synthesize these workflows into distinct deployment patterns: model versioning and storage, quality assurance, monitoring, model packaging and model serving patterns, and inference serving. We also present architectural designs of the evaluated inference systems.
+
+% Limitations, the scope for further research
+We recognize that the ML domain is still rapidly evolving as new algorithms, architectures, frameworks, and applications continue to emerge. As such, new practices that align with this evolution may also occur. Still, there is a need to establish standardized engineering processes for AI-enabled systems that support an efficient integration and deployment process of ML artefacts to other parts of the software ecosystem.
+
+% Significance of the study (practitioner)
+Developing ML-based systems is very experimental and involves interacting with multiple sub-processes. Moving towards standardized processes encourages the development of scalable workflows, pipelines, and increased reproducibility. In addition, it encourages practices that continuously push the operations to a  more mature state of engineering practices.
+
+% Significance of the study (researcher)
+We also note that the field needs further research, notably the scaling of pipelines and workflows. ML engineering workflows can be composed into operational pipelines. However, scaling these pipelines can lead to underutilized or over-provisioned resources. Optimal architectures are also not clearly defined. Instead, other non-functional factors tend to influence selected architectures. Further research would in filling these knowledge gaps.

@@ -1,0 +1,269 @@
+%DIF 1-2c1-2
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ./manuscript/deployment_v1//main.tex   Mon Feb 19 22:14:18 2024
+%DIF ADD ./manuscript/deployment_v2//main.tex   Mon Feb 19 12:57:36 2024
+%DIF < \documentclass[conference]{IEEEtran}
+%DIF < \IEEEoverridecommandlockouts
+%DIF -------
+\documentclass[manuscript,screen,review]{acmart} %DIF > 
+% \IEEEoverridecommandlockouts %DIF > 
+%DIF -------
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%DIF 4c4
+%DIF < \usepackage{cite}
+%DIF -------
+\usepackage{natbib} %DIF > 
+%DIF -------
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+%DIF 10c10-11
+%DIF < \usepackage{booktabs}
+%DIF -------
+% \usepackage{booktabs} %DIF > 
+\usepackage{rotating} %DIF > 
+%DIF -------
+\usepackage{makecell}
+\usepackage[most]{tcolorbox}
+%DIF < \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%DIF -------
+% \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em %DIF > 
+%DIF <     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}} %DIF > 
+%% \BibTeX command to typeset BibTeX logo in the docs %DIF > 
+\AtBeginDocument{% %DIF > 
+  \providecommand\BibTeX{{% %DIF > 
+    Bib\TeX}}} %DIF > 
+ %DIF > 
+%% Rights management information. This information is sent to you %DIF > 
+%% when you complete the rights form. These commands have SAMPLE %DIF > 
+%% values in them; it is your responsibility as an author to replace %DIF > 
+%% the commands and values with those provided to you when you %DIF > 
+%% complete the rights form. %DIF > 
+\setcopyright{acmlicensed} %DIF > 
+\copyrightyear{2024} %DIF > 
+\acmYear{2024} %DIF > 
+% \acmDOI{XXXXXXX.XXXXXXX} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+\graphicspath{ {./images/} }
+
+
+\title{\DIFdelbegin \DIFdel{Deployment Patterns of Machine Learning Systems: An empirical view}\DIFdelend \DIFaddbegin \DIFadd{Examining ML inference serving implementations in real-world settings}\DIFaddend } % An empirical view
+
+\author{\DIFdelbegin %DIFDELCMD < \IEEEauthorblockN{Dennis Muiruri, Lucy Ellen Lwakatare, Jukka K. Nurminen, Tommi }
+%DIFDELCMD < \IEEEauthorblockA{\textit{Computer Science Department} \\
+%DIFDELCMD < \textit{University of Helsinki}\\
+%DIFDELCMD < Helsinki, Finland \\
+%DIFDELCMD < dennis.muiruri@helsinki.fi}
+%DIFDELCMD < \and
+%DIFDELCMD < %%%
+%DIF < \IEEEauthorblockN{2\textsuperscript{nd} Lucy Ellen Lwakatare}
+%DIF < \IEEEauthorblockA{\textit{Computer Science Department} \\
+%DIF < \textit{University of Helsinki}\\
+%DIF < Helsinki, Finland \\
+%DIF < lucy.lwakatare@helsinki.fi}
+%DIF <  \and
+%DIF <  \IEEEauthorblockN{3\textsuperscript{rd} Jukka K. Nurminen}
+%DIF <  \IEEEauthorblockA{\textit{Computer Science Department} \\
+%DIF <  \textit{University of Helsinki}\\
+%DIF <  Helsinki, Finland \\
+%DIF <  jukka.k.nurminen@helsinki.fi}
+%DIFDELCMD < \and
+%DIFDELCMD < \IEEEauthorblockN{Tommi Mikkonen}
+%DIFDELCMD < \IEEEauthorblockA{\textit{Department of Computer Science} \\
+%DIFDELCMD < \textit{University of Jyväskylä}\\
+%DIFDELCMD < Jyväskylä, Finland \\
+%DIFDELCMD < tommi.mikkonen@jyvaskyla.fi}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Dennis Muiruri}\DIFaddend }
+\DIFaddbegin \email{dennis.muiruri@helsinki.fi}
+\orcid{0000-0003-4823-4810}
+\author{\DIFadd{Lucy Ellen Lwakatare}}
+\email{lucy.lwakatare@helsinki.fi}
+\author{\DIFadd{Jukka K. Nurminen}}
+\email{jukka.k.nurminen@helsinki.fi}
+\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \maketitle
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \affiliation{%
+  \institution{University of Helsinki, Computer Science Department}
+  \streetaddress{Pietari Kalmin katu 5}
+  \city{Helsinki}
+  \country{Finland}
+  \postcode{00560}
+}
+\author{\DIFadd{Tommi Mikkonen}}
+\affiliation{%
+  \institution{University of Jyväskylä, Faculty of Information Systems}
+  \streetaddress{Seminaarinkatu 15}
+  \city{Jyväskylä}
+  \country{Finland}}
+  \postcode{40014}
+\email{tommi.j.mikkonen@jyu.fi}
+\DIFaddend 
+
+
+\begin{abstract}
+%Background and introduction
+As machine learning-enabled systems continue to gain adoption, the engineering aspect of these systems has gained increased attention as the apparent complexities continue to surface.
+% Objective
+This study aims to explore multiple deployment workflows of various ML-enabled systems in the production phase and extract common \DIFdelbegin \DIFdel{patterns }\DIFdelend \DIFaddbegin \DIFadd{themes }\DIFaddend from the distinct workflows. We consider the deployment process to begin once an ML model has been trained, verified, and accepted for integration in production systems.
+%Methods
+Using interviews and a multi-case study design, we analyzed eight ML-enabled systems.
+%Results
+We discuss the following \DIFdelbegin \DIFdel{patterns}\DIFdelend \DIFaddbegin \DIFadd{thematic topics}\DIFaddend : model versioning and storage, quality assurance, monitoring, model packaging \DIFdelbegin \DIFdel{, servingpatterns}\DIFdelend \DIFaddbegin \DIFadd{and serving}\DIFaddend , and inference serving.
+%Conclusion
+Although ML domains and architectures may differ, commonly adopted practices can serve as a foundation for establishing a standardized ML engineering process.
+
+\end{abstract}
+
+\DIFdelbegin %DIFDELCMD < \begin{IEEEkeywords}
+%DIFDELCMD < %%%
+\DIFdel{deployment, machine learning engineering, machine learning operations
+}%DIFDELCMD < \end{IEEEkeywords}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \maketitle
+\DIFaddend 
+
+\DIFaddbegin \keywords{deployment, machine learning engineering, machine learning operations}
+
+\DIFaddend \section{Introduction}
+\label{sec: introduction}
+\input{ch_01_introduction}
+
+% Background and related work
+\input{ch_02_background_related_work}
+
+\section{Methodology}
+\label{sec: methodology}
+\input{ch_03_methodology}
+
+\section{Deployment Workflows and Inference Architectures}
+\label{sec: cases}
+%DIF <  A case description has three aspects, the textual description, a diagram, and a table entry. The text description will focus on outlining the processes in a detailed manner while the diagram presents technical/architectural aspects that are best indicated in an annotated diagram than being described. The table entry provides a high-level summary and serves as a comparison tool across the cases.
+This section outlines \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{various }\DIFaddend activities in the deployment procedure of ML models \DIFdelbegin \DIFdel{in each studied case . }\DIFdelend \DIFaddbegin \DIFadd{for each case study. The general deployment procedure we investigated through interviews is outlined in }\DIFaddend Figure~\ref{fig:deployment_highlevel_framework}\DIFdelbegin \DIFdel{summarizes the studied activities in the deployment procedure. For each case , the descriptions provide an overview of the }\DIFdelend \DIFaddbegin \DIFadd{. The level of detail obtained across cases may differ based on the details provided by a given interviewee. Each case study contains a description of the following elements}\DIFaddend :
+\begin{itemize}
+    \item ML system use case (or business context)
+    \item Integration activities before inference serving, including quality assurance, model packaging, etc. 
+    \item Server runtime configurations and server environment setups
+    \item Inference service 
+    \item Monitoring activities 
+\end{itemize}  
+
+%This section outlines the procedure followed in the case study process and a detailed description of each case. The model deployment workflow starts with a validated model artefact produced from the model experiment phase by the model training and testing phase.
+%The studied cases are presented in five distinct sections: i) A description of the business context of the ML system, ii) An examination of pre-integration activities, including quality assurance, model packaging, and any other preparations undertaken before inference serving. iii) An examination of server runtime configurations and server environment setups. iv) An examination of serving inference, and finally, v) an analysis of the monitoring activities in place. A comprehensive illustration of this framework is presented in figure~\ref{fig:deployment_highlevel_framework}.
+
+
+\subsection*{Case 1}\label{1}
+\input{cases/case_1}
+
+\subsection*{Case 2}\label{2}
+\input{cases/case_2}
+
+\subsection*{Case 3}\label{3}
+\input{cases/case_3}
+
+\input{cases/case_4}
+\input{cases/case_5}
+\input{cases/case_6}
+\input{cases/case_7}
+\input{cases/case_8}
+\input{tables/summary_of_cases.tex}
+
+\section{\DIFdelbegin \DIFdel{Patterns }\DIFdelend \DIFaddbegin \DIFadd{Recurrent themes }\DIFaddend in ML deployment workflows} \DIFdelbegin %DIFDELCMD < \label{sec: patterns}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  patterns => Recurrent themes
+\DIFaddbegin \label{sec: recurrent_themes}
+\DIFaddend \input{ch_05_patterns}
+
+% Section: Discussion
+\input{ch_06_discussion}
+
+\section{\DIFaddbegin \DIFadd{Threats to }\DIFaddend Validity}
+\label{sec: validity}
+\input{ch_07_validity_conclusion}
+
+\section*{Acknowledgment}
+
+This work was supported in part by local authorities (Business Finland) under grant agreements ITEA-2019-18022-IVVES https://ivves.eu/ ITEA3 program and ITEA-2021-20219-IML4E https://iml4e.org/ of ITEA4 program.
+
+% Section: References
+\DIFdelbegin %DIFDELCMD < \bibliographystyle{plain} %%%
+%DIF <  We choose the "plain" reference style
+\DIFdelend %DIF >  \bibliographystyle{plain} % We choose the "plain" reference style
+%DIF >  \bibliography{references}
+\DIFaddbegin 
+
+%DIF > %
+%DIF > % The next two lines define the bibliography style to be used and
+%DIF > % the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\DIFaddend \bibliography{references}
+
+\end{document}
