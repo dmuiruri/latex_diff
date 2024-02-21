@@ -6,17 +6,23 @@ are carried out in the correct files.
 """
 import os
 import subprocess
-
+import argparse
 import json
+
+parser = argparse.ArgumentParser(prog='Process latex files',
+                                 description='This script is used to generate differences between two versions of manuscripts. \
+                                    The changes are shown in different colors. The two versions of the manuscript must be placed \
+                                    must be placed in the manuscript folder. The script should be run from the root directory.',
+                                 epilog='Some parameters must be adjusted in the config file for the script to work.')
+parser.add_argument('version1', help='Provide directory name containining first version for comparison')
+parser.add_argument('version2', help='Provide directory name containining second version for comparison')
+args = parser.parse_args()
 
 with open('config.json', 'r') as config_file:
     config = json.load(config_file)
-
 ignored_files = config["ignored_files"]
 ignored_folders = config["ignored_dirs"]
 dirs = config["dirs"]
-old_ver = config["old_version"]
-new_ver = config["new_version"]
 
 def test_function():
     """
@@ -26,27 +32,20 @@ def test_function():
     cmd = './latexdiff/latexdiff latexdiff/example/example-draft.tex latexdiff/example/example-rev.tex > latexdiff/example/example-diff.tex'
     subprocess.run(cmd, shell=True)
 
-def command(dir, file):
-    """
-    Create a command to execute
-    """
-    tool = "./latexdiff/latexdiff"
-    arg1 = f"manuscript/{old_ver}/{dir}/{file}"
-    arg2 = f"manuscript/{new_ver}/{dir}/{file}"
-    output = f"> manuscript/diff/{dir}/{file}"
-    return tool + arg1 + arg2 + output
-
-def process_files():
+def process_files(version1, version2):
     """
     Check all files and conduct differences.
+
+    version1: directory containing older version
+    version2: directory containing updated version
     """
     print('>> {}'.format(process_files.__name__))
-    v1 = f"./manuscript/{old_ver}/"
-    v2 = f"./manuscript/{new_ver}/"
+    v1 = f"./manuscript/{version1}/"
+    v2 = f"./manuscript/{version2}/"
     tool = "./latexdiff/latexdiff "
     # first process files in the root folder then walk through the directories
-    for f in os.listdir(f'./manuscript/{old_ver}'):
-        fp = os.path.join(f'./manuscript/{old_ver}', f)
+    for f in os.listdir(f'{v1}'):
+        fp = os.path.join(f'{v2}', f)
         if os.path.isfile(fp) and f not in ignored_files:
                 print(f'>> {v1}/{f}')
                 arg1 = f"{v1}/{f} "
@@ -81,5 +80,9 @@ def process_standalone_files():
 
 if __name__ == '__main__':
     # test_function()
-    process_files()
+    # parse these as command line arguments
+    old_ver = args.version1
+    new_ver = args.version2
+
+    process_files(old_ver, new_ver)
     # process_standalone_files()
