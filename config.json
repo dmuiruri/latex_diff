@@ -1,0 +1,12 @@
+{
+    "ignored_files": [
+      "IEEEcsmag.cls", "IEEEtran.bst", "IEEEtran.cls", "IEEEtranS.bst",
+      "README.md", "main.bib", "main-diff.tex", "mlopsv1.zip", "mlopsv2.zip",
+      ".DS_Store", "references.bib", "acmart.cls"
+    ],
+    "ignored_dirs": ["images"],
+    "dirs": ["sections", "tables", "cases"],
+    "old_version": "deployment_v1",
+    "new_version": "deployment_v2"
+  }
+  

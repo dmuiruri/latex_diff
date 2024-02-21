@@ -7,15 +7,16 @@ are carried out in the correct files.
 import os
 import subprocess
 
-ignored_files = ['IEEEcsmag.cls', 'IEEEtran.bst', 'IEEEtran.cls', 'IEEEtranS.bst','README.md', 'main.bib',
-                 'main-diff.tex', 'mlopsv1.zip', 'mlopsv2.zip', '.DS_Store', 'references.bib', 'acmart.cls']
+import json
 
-ignored_folders = ['images']
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
 
-folders = ['sections', 'tables', 'cases'] # folders to be processed
-
-old_ver = 'deployment_v1'
-new_ver = 'deployment_v2'
+ignored_files = config["ignored_files"]
+ignored_folders = config["ignored_dirs"]
+dirs = config["dirs"]
+old_ver = config["old_version"]
+new_ver = config["new_version"]
 
 def test_function():
     """
@@ -55,7 +56,7 @@ def process_files():
         else:
             dirpath = os.path.join(v1, f)
             if os.path.isdir(f"{dirpath}"):
-                if os.path.isdir(v1 + f) and os.path.isdir(v2 + f) and f in folders:
+                if os.path.isdir(v1 + f) and os.path.isdir(v2 + f) and f in dirs:
                     print(os.path.isdir(v1 + f))
                     for file in os.listdir(v2 + f):
                         print(f"{v2}{f}/{file}")
